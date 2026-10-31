@@ -283,12 +283,105 @@ const schemaBreadcrumbs = {
     color: var(--color-text-secondary);
   }
 
-  @media (max-width: 640px) {
-    .wib-date-sep, .wib-date-display {
+  /* Mobile Responsive Breadcrumbs & Real-time Clock */
+  @media (max-width: 768px) {
+    .breadcrumb-bar-wrapper {
+      padding: 0.5rem 0 0.35rem;
+    }
+
+    .breadcrumb-inner-flex {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.45rem;
+      width: 100%;
+    }
+
+    .breadcrumb-nav-box {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0.38rem 0.85rem;
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.85);
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      display: flex;
+    }
+
+    .breadcrumb-nav-box::-webkit-scrollbar {
       display: none;
     }
-    .breadcrumb-inner-flex {
-      gap: 0.5rem;
+
+    .breadcrumb-list {
+      font-size: 0.78rem;
+    }
+
+    .breadcrumb-chevron {
+      width: 10px;
+      height: 10px;
+    }
+
+    .breadcrumb-home-icon {
+      width: 13px;
+      height: 13px;
+    }
+
+    .realtime-wib-widget {
+      width: 100%;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.38rem 0.85rem;
+      border-radius: var(--radius-lg);
+      font-size: 0.76rem;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(200, 155, 107, 0.3);
+    }
+
+    .wib-divider {
+      height: 12px;
+      margin: 0 0.2rem;
+    }
+
+    .wib-date-sep, .wib-date-display {
+      display: inline-flex !important;
+    }
+
+    .wib-time-display, .wib-date-display {
+      gap: 0.3rem;
+    }
+
+    .wib-icon {
+      width: 12px;
+      height: 12px;
+    }
+
+    .live-clock-digits {
+      font-size: 0.76rem;
+    }
+
+    .live-date-text {
+      font-size: 0.73rem;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .breadcrumb-nav-box,
+    .realtime-wib-widget {
+      padding: 0.32rem 0.65rem;
+    }
+
+    .live-text-label {
+      display: none;
+    }
+
+    .live-clock-digits {
+      font-size: 0.72rem;
+    }
+
+    .live-date-text {
+      font-size: 0.7rem;
     }
   }
 </style>

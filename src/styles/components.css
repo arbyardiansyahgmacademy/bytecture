@@ -3185,52 +3185,9 @@
     box-sizing: border-box !important;
   }
 
+  /* Item 2: Hide Hero Top Pill Navigation Cards on Mobile */
   .hero-top-pill-bar {
-    width: 100% !important;
-    max-width: 100% !important;
-    overflow: visible !important;
-  }
-
-  .hero-pill-nav {
-    width: 100% !important;
-    max-width: 100% !important;
-    overflow-x: auto !important;
-    -webkit-overflow-scrolling: touch !important;
-    scrollbar-width: none !important;
-    padding: 0.35rem 0.4rem !important;
-    border-radius: var(--radius-lg) !important;
-    gap: 0.35rem !important;
-    box-sizing: border-box !important;
-  }
-
-  .hero-pill-nav::-webkit-scrollbar {
     display: none !important;
-  }
-
-  .pill-nav-item {
-    font-size: 0.76rem !important;
-    padding: 0.45rem 0.75rem !important;
-    flex-shrink: 0 !important;
-  }
-
-  .hero-pill-dropdown-menu {
-    position: fixed !important;
-    top: auto !important;
-    bottom: calc(var(--bottom-nav-height) + 12px) !important;
-    left: 12px !important;
-    right: 12px !important;
-    width: auto !important;
-    max-width: calc(100vw - 24px) !important;
-    max-height: 75vh !important;
-    overflow-y: auto !important;
-    border-radius: var(--radius-xl) !important;
-    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.25) !important;
-    z-index: 1000 !important;
-  }
-
-  .hero-pill-dropdown-menu.dropdown-menu-wide {
-    width: auto !important;
-    max-width: calc(100vw - 24px) !important;
   }
 
   .hero-body-content {
@@ -3301,4 +3258,334 @@
     font-size: 0.72rem !important;
     flex: 1 1 40% !important;
   }
+
+  /* ==========================================================================
+     MOBILE RESPONSIVE DETAIL PAGE CARDS: BACA JUGA, FAQ, CARD AUTHOR, ETC.
+     ========================================================================== */
+
+  /* Article Container & Header */
+  .article-main {
+    padding: 1.25rem 0.95rem !important;
+    border-radius: var(--radius-xl) !important;
+  }
+
+  .article-header h1 {
+    font-size: clamp(1.4rem, 6vw, 1.85rem) !important;
+    line-height: 1.25 !important;
+  }
+
+  .article-meta {
+    gap: 0.75rem !important;
+    padding: 0.85rem !important;
+    border-radius: var(--radius-lg) !important;
+    flex-direction: row !important;
+    align-items: center !important;
+  }
+
+  .article-meta .author-avatar {
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  .author-name-row .author-name {
+    font-size: 0.9rem !important;
+  }
+
+  .post-meta-details {
+    font-size: 0.74rem !important;
+    gap: 0.35rem !important;
+    flex-wrap: wrap !important;
+  }
+
+  /* 1. BACA JUGA BOX (In-Content Recommendation) */
+  .baca-juga-box {
+    flex-direction: row !important;
+    align-items: center !important;
+    padding: 0.85rem !important;
+    gap: 0.75rem !important;
+    border-radius: var(--radius-lg) !important;
+    margin: 1.5rem 0 !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04) !important;
+  }
+
+  .baca-juga-box .icon {
+    display: none !important; /* frees up valuable space on mobile */
+  }
+
+  .baca-juga-box .thumb {
+    width: 78px !important;
+    height: 65px !important;
+    border-radius: 8px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .baca-juga-box .label {
+    font-size: 0.65rem !important;
+    margin-bottom: 0.15rem !important;
+  }
+
+  .baca-juga-box h4 {
+    font-size: 0.86rem !important;
+    line-height: 1.35 !important;
+    margin: 0 0 0.2rem 0 !important;
+  }
+
+  .baca-juga-box .link {
+    font-size: 0.75rem !important;
+  }
+
+  /* 2. FAQ SECTION IN DETAIL PAGES */
+  .faq-section {
+    margin: 2.5rem 0 1.5rem !important;
+    padding: 1.15rem 0.9rem !important;
+    border-radius: var(--radius-xl) !important;
+  }
+
+  .faq-header-block {
+    margin-bottom: 1.25rem !important;
+    padding-bottom: 0.85rem !important;
+  }
+
+  .faq-header-block h3 {
+    font-size: 1.25rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 0.35rem !important;
+  }
+
+  .faq-header-desc {
+    font-size: 0.82rem !important;
+    line-height: 1.5 !important;
+  }
+
+  .faq-question {
+    padding: 0.85rem 0.85rem !important;
+    gap: 0.55rem !important;
+  }
+
+  .faq-q-num {
+    width: 24px !important;
+    height: 24px !important;
+    font-size: 0.68rem !important;
+    border-radius: 6px !important;
+  }
+
+  .faq-q-text {
+    font-size: 0.88rem !important;
+    line-height: 1.35 !important;
+  }
+
+  .faq-toggle-badge {
+    width: 26px !important;
+    height: 26px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .faq-answer {
+    padding: 0 0.85rem 0.95rem !important;
+  }
+
+  .faq-answer-inner {
+    padding-top: 0.75rem !important;
+  }
+
+  .faq-answer-text {
+    font-size: 0.84rem !important;
+    line-height: 1.55 !important;
+  }
+
+  .faq-verified-row {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.65rem !important;
+    margin-top: 0.85rem !important;
+    padding-top: 0.75rem !important;
+  }
+
+  .faq-author-verified {
+    font-size: 0.72rem !important;
+    justify-content: flex-start !important;
+  }
+
+  .faq-consult-btn {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 0.55rem 0.85rem !important;
+    font-size: 0.8rem !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Common FAQ Component (e.g. Layanan Detail) */
+  .faq-trigger {
+    padding: 0.85rem !important;
+    gap: 0.55rem !important;
+  }
+
+  .faq-num {
+    width: 24px !important;
+    height: 24px !important;
+    font-size: 0.68rem !important;
+  }
+
+  .faq-title-text {
+    font-size: 0.88rem !important;
+    line-height: 1.35 !important;
+  }
+
+  .faq-answer-inner {
+    padding: 0.85rem !important;
+  }
+
+  .faq-answer-footer {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.6rem !important;
+  }
+
+  .faq-consult-link {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  /* 3. CARD AUTHOR (Author Bio Box at Bottom) */
+  .author-bio {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 0.85rem !important;
+    padding: 1.35rem 1rem !important;
+    margin: 2rem 0 1.5rem !important;
+    border-radius: var(--radius-xl) !important;
+    background: linear-gradient(145deg, #ffffff 0%, #fbf8f4 100%) !important;
+    border: 1px solid rgba(200, 155, 107, 0.35) !important;
+    box-shadow: 0 4px 18px rgba(18, 19, 22, 0.04) !important;
+  }
+
+  .author-bio .avatar {
+    width: 72px !important;
+    height: 72px !important;
+    border: 2.5px solid var(--color-accent) !important;
+    box-shadow: 0 4px 12px rgba(200, 155, 107, 0.25) !important;
+  }
+
+  .author-bio .info {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .author-bio .info h4 {
+    font-size: 1.08rem !important;
+    margin-bottom: 0.15rem !important;
+    text-align: center !important;
+  }
+
+  .author-bio .role {
+    font-size: 0.72rem !important;
+    margin-bottom: 0.5rem !important;
+    text-align: center !important;
+  }
+
+  .author-bio p {
+    font-size: 0.85rem !important;
+    line-height: 1.6 !important;
+    text-align: center !important;
+  }
+
+  /* 4. SIDEBAR RELATED / BACA JUGA CARDS */
+  .article-sidebar {
+    margin-top: 2rem !important;
+    gap: 1.25rem !important;
+  }
+
+  .sidebar-related {
+    padding: 1.15rem 0.95rem !important;
+    border-radius: var(--radius-xl) !important;
+  }
+
+  .sidebar-related h3 {
+    font-size: 1.05rem !important;
+    margin-bottom: 1rem !important;
+    padding-bottom: 0.6rem !important;
+  }
+
+  .related-item {
+    gap: 0.75rem !important;
+    margin-bottom: 1rem !important;
+    padding-bottom: 1rem !important;
+  }
+
+  .related-item .thumb {
+    width: 72px !important;
+    height: 72px !important;
+    border-radius: 10px !important;
+  }
+
+  .related-item .content h4 {
+    font-size: 0.88rem !important;
+    line-height: 1.35 !important;
+    margin-bottom: 0.25rem !important;
+  }
+
+  .related-item .content p {
+    font-size: 0.78rem !important;
+    line-height: 1.4 !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+  }
+
+  .related-item .readmore {
+    font-size: 0.78rem !important;
+  }
+
+  /* 5. SIDEBAR HERO PROMO & NEWS WIDGET */
+  .sidebar-hero {
+    padding: 1.25rem 1rem !important;
+    border-radius: var(--radius-xl) !important;
+  }
+
+  .sidebar-hero h4 {
+    font-size: 1.05rem !important;
+  }
+
+  .sidebar-hero p {
+    font-size: 0.84rem !important;
+  }
+
+  .news-widget {
+    padding: 1.15rem 0.95rem !important;
+    border-radius: var(--radius-xl) !important;
+  }
+
+  .news-widget-video-wrap {
+    height: 160px !important;
+  }
+
+  /* 6. SOCIAL SHARE BUTTONS */
+  .share-section {
+    gap: 0.45rem !important;
+    padding: 1.25rem 0 0.5rem !important;
+  }
+
+  .share-section .label {
+    width: 100% !important;
+    margin-bottom: 0.25rem !important;
+    justify-content: center !important;
+    font-size: 0.82rem !important;
+    padding: 0.35rem 0.85rem !important;
+  }
+
+  .share-btn {
+    flex: 1 1 calc(50% - 0.45rem) !important;
+    justify-content: center !important;
+    padding: 0.5rem 0.75rem !important;
+    font-size: 0.78rem !important;
+  }
+
+  .share-btn.copy {
+    flex: 1 1 100% !important;
+  }
 }
+
