@@ -1,0 +1,200 @@
+---
+import { siteConfig } from '../../data/site';
+
+interface Props {
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+  buttonText?: string;
+  customMessage?: string;
+}
+
+const {
+  eyebrow = 'MULAI PROYEK IMPIAN ANDA',
+  title = 'Rencanakan Desain Bangunan Terbaik Bersama Bytecture',
+  description = 'Konsultasikan ide tata ruang, ukuran lahan, dan preferensi gaya arsitektur Anda secara langsung dengan tim perancang kami via WhatsApp.',
+  buttonText = 'Konsultasi Sekarang via WhatsApp',
+  customMessage = 'Halo Bytecture, saya ingin berkonsultasi mengenai rencana desain bangunan saya.',
+} = Astro.props;
+
+const waUrl = `${siteConfig.whatsappUrl}?text=${encodeURIComponent(customMessage)}`;
+---
+
+<section class="section-spacing cta-section-wrapper">
+  <div class="container">
+    <div class="cta-banner-card">
+      <!-- Decorative Ambient Gradient Glow -->
+      <div class="cta-glow-backdrop" aria-hidden="true"></div>
+
+      <div class="cta-inner-content">
+        <span class="cta-eyebrow">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+          </svg>
+          <span>{eyebrow}</span>
+        </span>
+
+        <h2 class="cta-heading">{title}</h2>
+
+        <p class="cta-description">{description}</p>
+
+        <div class="cta-buttons-group">
+          <!-- Button 1: WhatsApp CTA (Vibrant WhatsApp Green) -->
+          <a
+            href={waUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="cta-btn-whatsapp"
+            aria-label="Konsultasi via WhatsApp"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M8.53 7.33C8.37 7.33 8.1 7.39 7.87 7.64C7.65 7.89 7.02 8.48 7.02 9.68C7.02 10.88 7.89 12.04 8.01 12.2C8.13 12.37 9.71 14.81 12.13 15.86C14.15 16.73 14.56 16.56 15 16.51C15.44 16.47 16.42 15.93 16.62 15.36C16.82 14.79 16.82 14.3 16.76 14.2C16.7 14.1 16.54 14.04 16.3 13.92C16.06 13.8 14.88 13.22 14.66 13.14C14.44 13.06 14.28 13.02 14.12 13.26C13.96 13.5 13.5 14.1 13.36 14.26C13.22 14.42 13.08 14.44 12.84 14.32C12.6 14.2 11.83 13.95 10.91 13.13C10.2 12.5 9.71 11.71 9.58 11.47C9.44 11.23 9.56 11.1 9.68 10.98C9.79 10.87 9.93 10.69 10.05 10.55C10.17 10.41 10.21 10.31 10.29 10.15C10.37 9.99 10.33 9.85 10.27 9.73C10.21 9.61 9.75 8.47 9.56 7.99C9.37 7.53 9.17 7.59 9.03 7.58C8.89 7.58 8.73 7.58 8.57 7.58L8.53 7.33Z"/>
+            </svg>
+            <span>{buttonText}</span>
+          </a>
+
+          <!-- Button 2: Secondary Kontak Form (Warm Champagne Gold/Bronze Outline) -->
+          <a
+            href="/kontak/"
+            class="cta-btn-secondary"
+            aria-label="Isi Formulir Kontak"
+          >
+            <span>Isi Formulir Kontak</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-section-wrapper {
+    position: relative;
+  }
+
+  .cta-banner-card {
+    position: relative;
+    border-radius: clamp(24px, 4vw, 36px);
+    background: linear-gradient(135deg, #18191d 0%, #101113 100%);
+    border: 1px solid rgba(200, 155, 107, 0.4);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+    padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1.5rem, 4vw, 3.5rem);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .cta-glow-backdrop {
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(200, 155, 107, 0.18) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .cta-inner-content {
+    position: relative;
+    z-index: 2;
+    max-width: 720px;
+  }
+
+  /* Eyebrow: Bright Warm Bronze Gold */
+  .cta-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: #e6b980;
+    margin-bottom: 1.25rem;
+  }
+
+  /* Heading: Pure Crisp White */
+  .cta-heading {
+    color: #ffffff;
+    font-size: clamp(1.85rem, 3.5vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    margin-bottom: 1.25rem;
+  }
+
+  /* Description: Soft Cool Slate / Pearl Gray */
+  .cta-description {
+    color: #cbd5e1;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 2.25rem;
+  }
+
+  .cta-buttons-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+  }
+
+  /* Button 1: WhatsApp CTA (Vibrant WhatsApp Green, White Bold Text) */
+  .cta-btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    padding: 0.95rem 2.2rem;
+    border-radius: var(--radius-pill);
+    background: #25d366;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 700;
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
+    transition: all var(--transition-fast);
+    text-decoration: none;
+  }
+
+  .cta-btn-whatsapp:hover {
+    background: #1eb854;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(37, 211, 102, 0.45);
+    color: #ffffff;
+  }
+
+  /* Button 2: Secondary Kontak Form (Warm Champagne Gold/Bronze Outline) */
+  .cta-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    padding: 0.95rem 2rem;
+    border-radius: var(--radius-pill);
+    background: rgba(200, 155, 107, 0.15);
+    border: 1.5px solid #c89b6b;
+    color: #f5ece2;
+    font-size: 1rem;
+    font-weight: 600;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: all var(--transition-fast);
+    text-decoration: none;
+  }
+
+  .cta-btn-secondary:hover {
+    background: #c89b6b;
+    color: #141517;
+    font-weight: 700;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba(200, 155, 107, 0.35);
+  }
+</style>

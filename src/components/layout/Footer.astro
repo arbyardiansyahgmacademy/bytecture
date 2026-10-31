@@ -1,0 +1,497 @@
+---
+import { siteConfig } from '../../data/site';
+import { services } from '../../data/services';
+import { packages } from '../../data/packages';
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <!-- Top Luxury Architectural Trust Bar -->
+  <div class="footer-top-strip">
+    <div class="container footer-strip-inner">
+      <div class="strip-badge-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2.2" aria-hidden="true">
+          <rect width="18" height="18" x="3" y="3" rx="2"></rect>
+          <path d="M3 9h18"></path>
+          <path d="M9 21V9"></path>
+        </svg>
+        <span>STUDIO ARSITEKTUR &bull; 100% KONSULTASI DIGITAL SELURUH INDONESIA</span>
+      </div>
+
+      <div class="strip-badge-item">
+        <span class="strip-pulse-dot" aria-hidden="true"></span>
+        <span>JAM PELAYANAN: SENIN &ndash; MINGGU 08.00 &ndash; 21.00 WIB (FAST RESPONSE WA)</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container footer-top">
+    <div class="footer-grid">
+      <!-- Col 1: Brand Info & Verified Contacts -->
+      <div class="footer-brand-col">
+        <a href="/" class="footer-logo" title="Bytecture — Beranda">
+          <div class="brand-logo-wrap footer">
+            <img
+              src="/images/logo/logo-bytecture.webp"
+              alt="Logo Resmi Bytecture"
+              width="48"
+              height="48"
+              class="brand-logo-img"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="brand-info">
+            <span class="brand-name">Bytecture</span>
+            <span class="brand-badge-footer">Jasa Arsitek Online Indonesia</span>
+          </div>
+        </a>
+
+        <p class="footer-desc">
+          Layanan jasa arsitek profesional dan konsultasi desain bangunan secara daring untuk seluruh wilayah Indonesia. Menghadirkan solusi tata ruang modern tropis yang sehat, estetik, dan berstandar teknis konstruksi nyata.
+        </p>
+
+        <!-- Social Media Buttons -->
+        <div class="footer-social-wrap">
+          <span class="social-label">Kanal Media Sosial:</span>
+          <div class="footer-social-row">
+            <a href={siteConfig.socials.instagram} target="_blank" rel="noopener noreferrer" class="social-icon-btn social-ig" aria-label="Instagram Resmi Bytecture" title="Instagram @bytecture">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5.5" ry="5.5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"></circle>
+              </svg>
+            </a>
+            <a href={siteConfig.socials.facebook} target="_blank" rel="noopener noreferrer" class="social-icon-btn social-fb" aria-label="Facebook Bytecture" title="Facebook Bytecture Architecture">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+            <a href={siteConfig.socials.tiktok} target="_blank" rel="noopener noreferrer" class="social-icon-btn social-tk" aria-label="TikTok Bytecture" title="TikTok @bytecture">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.9 2.9 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V8.98a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3 15.28a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V9.05a8.27 8.27 0 0 0 5-1.63l-1.09-2.73z"/>
+              </svg>
+            </a>
+            <a href={siteConfig.socials.twitter} target="_blank" rel="noopener noreferrer" class="social-icon-btn social-tw" aria-label="X (Twitter) Bytecture" title="X (Twitter) @bytecture">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+            <a href={siteConfig.socials.youtube} target="_blank" rel="noopener noreferrer" class="social-icon-btn social-yt" aria-label="YouTube Bytecture" title="YouTube Official Bytecture">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.377.55a3.016 3.016 0 0 0-2.122 2.136C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.55 9.376.55 9.376.55s7.505 0 9.377-.55a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+              </svg>
+            </a>
+            <a href={siteConfig.whatsappUrl} target="_blank" rel="noopener noreferrer" class="social-icon-btn wa-social" aria-label="WhatsApp Admin Bytecture" title="Chat WhatsApp Resmi">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M8.53 7.33C8.37 7.33 8.1 7.39 7.87 7.64C7.65 7.89 7.02 8.48 7.02 9.68C7.02 10.88 7.89 12.04 8.01 12.2C8.13 12.37 9.71 14.81 12.13 15.86C14.15 16.73 14.56 16.56 15 16.51C15.44 16.47 16.42 15.93 16.62 15.36C16.82 14.79 16.82 14.3 16.76 14.2C16.7 14.1 16.54 14.04 16.3 13.92C16.06 13.8 14.88 13.22 14.66 13.14C14.44 13.06 14.28 13.02 14.12 13.26C13.96 13.5 13.5 14.1 13.36 14.26C13.22 14.42 13.08 14.44 12.84 14.32C12.6 14.2 11.83 13.95 10.91 13.13C10.2 12.5 9.71 11.71 9.58 11.47C9.44 11.23 9.56 11.1 9.68 10.98C9.79 10.87 9.93 10.69 10.05 10.55C10.17 10.41 10.21 10.31 10.29 10.15C10.37 9.99 10.33 9.85 10.27 9.73C10.21 9.61 9.75 8.47 9.56 7.99C9.37 7.53 9.17 7.59 9.03 7.58C8.89 7.58 8.73 7.58 8.57 7.58L8.53 7.33Z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Col 2: Halaman Utama -->
+      <div>
+        <h4 class="footer-col-title">
+          <span>Navigasi Utama</span>
+          <span class="col-title-line" aria-hidden="true"></span>
+        </h4>
+        <ul class="footer-links">
+          <li><a href="/"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> <span>Beranda</span></a></li>
+          <li><a href="/tentang-kami/"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> <span>Tentang Kami</span></a></li>
+          <li><a href="/layanan/"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> <span>Katalog Layanan</span></a></li>
+          <li><a href="/paket/"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> <span>Pilihan Paket</span></a></li>
+          <li><a href="/galeri/"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> <span>Galeri Desain</span></a></li>
+          <li><a href="/blog/"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> <span>Artikel Edukasi</span></a></li>
+          <li><a href="/kontak/"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> <span>Kontak & Konsultasi</span></a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Layanan Populer -->
+      <div>
+        <h4 class="footer-col-title">
+          <span>Layanan Arsitektur</span>
+          <span class="col-title-line" aria-hidden="true"></span>
+        </h4>
+        <ul class="footer-links">
+          {services.map((s) => (
+            <li><a href={`/layanan/${s.slug}/`}><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> <span>{s.title}</span></a></li>
+          ))}
+          {packages.slice(0, 2).map((p) => (
+            <li><a href={`/paket/${p.slug}/`}><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> <span>{p.title}</span></a></li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Col 4: Peta Lokasi Studio Kota Malang -->
+      <div class="footer-map-col">
+        <h4 class="footer-col-title">
+          <span>Lokasi: Kota Malang</span>
+          <span class="col-title-line" aria-hidden="true"></span>
+        </h4>
+        
+        <div class="footer-map-box">
+          <div class="footer-map-iframe-wrap">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126438.33878486985!2d112.56174246995646!3d-7.978469493922659!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd62822063dd409%3A0x302730fdac37200!2sKota%20Malang%2C%20Jawa%20Timur!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid"
+              width="100%"
+              height="160"
+              style="border:0; border-radius: 12px; display: block;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Peta Lokasi Studio Bytecture di Kota Malang"
+            ></iframe>
+          </div>
+
+          <div class="footer-map-info">
+            <div class="map-city-title">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <strong>Kota Malang, Jawa Timur</strong>
+            </div>
+            <p class="map-city-desc">
+              Studio Perancangan & Konsultasi Arsitektur Digital &bull; Melayani Seluruh Indonesia.
+            </p>
+            <a
+              href="https://maps.google.com/?q=Kota+Malang,+Jawa+Timur"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer-map-link"
+              title="Buka Peta Kota Malang di Google Maps"
+            >
+              <span>Buka di Google Maps</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 7"></polyline>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <p>&copy; {currentYear} <strong>Bytecture</strong>. Hak Cipta Dilindungi Undang-Undang. Studio Jasa Arsitek Online Indonesia.</p>
+      <div class="footer-bottom-links">
+        <a href="/kebijakan-privasi/">Kebijakan Privasi</a>
+        <span class="sep-dot">&bull;</span>
+        <a href="/kontak/">Kontak Kami</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: #111215;
+    color: #f1f2f4;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Top Decorative Trust Strip */
+  .footer-top-strip {
+    background: rgba(20, 21, 24, 0.85);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 0.75rem 0;
+    font-size: 0.78rem;
+    color: #cbd5e1;
+  }
+
+  .footer-strip-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .strip-badge-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+  }
+
+  .strip-pulse-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 8px rgba(34, 197, 94, 0.8);
+    flex-shrink: 0;
+  }
+
+  /* Brand Column */
+  .brand-badge-footer {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--color-accent);
+    text-transform: uppercase;
+  }
+
+  .footer-info-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    margin: 1.25rem 0;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: var(--radius-lg);
+  }
+
+  .footer-contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.86rem;
+    line-height: 1.5;
+    color: #cbd5e1;
+  }
+
+  .footer-contact-item strong {
+    color: #ffffff;
+    display: block;
+    font-size: 0.82rem;
+    margin-bottom: 0.15rem;
+  }
+
+  .footer-phone-link {
+    color: var(--color-accent);
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  .footer-social-wrap {
+    margin-top: 1rem;
+  }
+
+  .social-label {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #94a3b8;
+    margin-bottom: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .footer-social-row {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+  }
+
+  .social-icon-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #cbd5e1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+  }
+
+  .social-icon-btn svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .social-icon-btn:hover {
+    background: var(--color-accent);
+    color: #141517;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(200, 155, 107, 0.3);
+  }
+
+  .social-icon-btn.social-ig:hover {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    color: #ffffff;
+    border-color: transparent;
+    box-shadow: 0 6px 16px rgba(214, 36, 159, 0.4);
+  }
+
+  .social-icon-btn.social-fb:hover {
+    background: #1877F2;
+    color: #ffffff;
+    border-color: #1877F2;
+    box-shadow: 0 6px 16px rgba(24, 119, 242, 0.4);
+  }
+
+  .social-icon-btn.social-tk:hover {
+    background: #000000;
+    color: #00f2fe;
+    border-color: #fe2c55;
+    box-shadow: 0 6px 16px rgba(254, 44, 85, 0.35);
+  }
+
+  .social-icon-btn.social-tw:hover {
+    background: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+    box-shadow: 0 6px 16px rgba(255, 255, 255, 0.3);
+  }
+
+  .social-icon-btn.social-yt:hover {
+    background: #FF0000;
+    color: #ffffff;
+    border-color: #FF0000;
+    box-shadow: 0 6px 16px rgba(255, 0, 0, 0.4);
+  }
+
+  .social-icon-btn.wa-social:hover {
+    background: #25d366;
+    color: #ffffff;
+    border-color: #25d366;
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.45);
+  }
+
+  /* Column Titles */
+  .footer-col-title {
+    position: relative;
+    padding-bottom: 0.75rem;
+    margin-bottom: 1.25rem;
+    color: #ffffff;
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .col-title-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 32px;
+    height: 2px;
+    background: var(--color-accent);
+    border-radius: 2px;
+  }
+
+  .footer-links li a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #94a3b8;
+    transition: all var(--transition-fast);
+  }
+
+  .footer-links li a svg {
+    color: var(--color-accent);
+    transition: transform var(--transition-fast);
+  }
+
+  .footer-links li a:hover {
+    color: #ffffff;
+    transform: translateX(4px);
+  }
+
+  .footer-links li a:hover svg {
+    transform: translateX(2px);
+  }
+
+  /* Map Box Kota Malang in Footer */
+  .footer-map-box {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(200, 155, 107, 0.25);
+    border-radius: var(--radius-xl);
+    padding: 0.85rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .footer-map-iframe-wrap {
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    background: #141517;
+  }
+
+  .footer-map-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .map-city-title {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: #ffffff;
+    font-size: 0.92rem;
+  }
+
+  .map-city-title svg {
+    color: var(--color-accent);
+  }
+
+  .map-city-desc {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .footer-map-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    text-decoration: underline;
+    margin-top: 0.25rem;
+    transition: color var(--transition-fast);
+  }
+
+  .footer-map-link:hover {
+    color: #ffffff;
+  }
+
+  /* Footer Bottom Inner */
+  .footer-bottom-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.84rem;
+    color: #94a3b8;
+  }
+
+  .footer-bottom-links {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .footer-bottom-links a {
+    color: #94a3b8;
+    transition: color var(--transition-fast);
+  }
+
+  .footer-bottom-links a:hover {
+    color: #ffffff;
+  }
+
+  .sep-dot {
+    color: #475569;
+  }
+</style>

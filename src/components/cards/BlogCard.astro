@@ -1,0 +1,92 @@
+---
+import type { ArticleItem } from '../../data/articles';
+
+interface Props {
+  article: ArticleItem;
+}
+
+const { article } = Astro.props;
+
+// Format date in Indonesian
+const formattedDate = new Date(article.publishDate).toLocaleDateString('id-ID', {
+  day: 'numeric',
+  month: 'short',
+  year: 'numeric',
+});
+---
+
+<article class="blog-card">
+  <div class="blog-card-media">
+    <a href={`/blog/${article.slug}/`} class="blog-card-media-link" aria-label={`Baca artikel: ${article.title}`}>
+      <img
+        src={article.image}
+        alt={article.alt}
+        loading="lazy"
+        width="800"
+        height="500"
+      />
+      <div class="blog-card-media-overlay"></div>
+    </a>
+    <span class="blog-card-category-badge">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <rect width="18" height="18" x="3" y="3" rx="2"></rect>
+        <path d="M3 9h18"></path>
+        <path d="M9 21V9"></path>
+      </svg>
+      <span>{article.category}</span>
+    </span>
+  </div>
+
+  <div class="blog-card-body">
+    <div class="blog-card-meta-top">
+      <span class="blog-reading-time">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        <span>{article.readingTime}</span>
+      </span>
+      <span class="blog-meta-dot">&bull;</span>
+      <time datetime={article.publishDate} class="blog-date">{formattedDate}</time>
+    </div>
+
+    <h3 class="blog-card-title">
+      <a href={`/blog/${article.slug}/`}>{article.title}</a>
+    </h3>
+
+    <p class="blog-card-excerpt">{article.excerpt}</p>
+
+    <!-- Author & Read Action Footer -->
+    <div class="blog-card-footer">
+      <div class="blog-card-author">
+        <div class="blog-author-avatar">
+          <img
+            src="/images/author/author-artikel-arby-ardiansyah.webp"
+            alt="Arby Ardiansyah — Lead Architect Bytecture"
+            width="40"
+            height="40"
+            loading="lazy"
+          />
+          <span class="author-status-dot" title="Verified Arsitek"></span>
+        </div>
+        <div class="blog-author-details">
+          <div class="author-name-wrapper">
+            <span class="author-name">Arby Ardiansyah</span>
+            <svg class="author-check-icon" width="13" height="13" viewBox="0 0 24 24" fill="#C89B6B" title="Arsitek Terverifikasi">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>
+          </div>
+          <span class="author-role">Lead Architect</span>
+        </div>
+      </div>
+
+      <a href={`/blog/${article.slug}/`} class="blog-card-action-btn" aria-label={`Baca selengkapnya artikel ${article.title}`}>
+        <span>Baca Panduan</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <line x1="7" y1="17" x2="17" y2="7"></line>
+          <polyline points="7 7 17 7 17 17"></polyline>
+        </svg>
+      </a>
+    </div>
+  </div>
+</article>

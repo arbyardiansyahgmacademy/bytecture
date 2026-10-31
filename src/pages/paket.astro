@@ -1,0 +1,53 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { packages } from '../data/packages';
+import { generalFaqs } from '../data/faqs';
+import PackageCard from '../components/cards/PackageCard.astro';
+import FAQ from '../components/common/FAQ.astro';
+import CTASection from '../components/common/CTASection.astro';
+
+const title = 'Pilihan Paket Jasa Desain Arsitektur — Bytecture';
+const description = 'Daftar pilihan paket jasa arsitek online Bytecture: Paket Konsultasi, Paket Desain Basic, Paket Desain Lengkap & Gambar Kerja, serta Paket Custom.';
+---
+
+<MainLayout
+  title={title}
+  description={description}
+  canonicalPath="/paket/"
+  breadcrumbs={[
+    { name: 'Beranda', url: '/' },
+    { name: 'Paket' },
+  ]}
+>
+  <section class="section-spacing" style="padding-top: 2rem;">
+    <div class="container">
+      <div style="max-width: 800px; margin-bottom: 3.5rem;">
+        <span class="eyebrow eyebrow-accent" style="margin-bottom: 0.75rem;">PAKET & INVESTASI DESAIN</span>
+        <h1 style="margin-bottom: 1.25rem;">Struktur Paket Desain yang Jelas, Fleksibel, dan Transparan</h1>
+        <p style="font-size: 1.15rem; line-height: 1.7; color: var(--color-text-secondary);">
+          Kami menyusun paket perancangan agar calon klien dapat memilih tingkat kedalaman dokumen sesuai kesiapan pembangunan—dari konsep awal denah hingga gambar kerja teknis siap konstruksi.
+        </p>
+      </div>
+
+      <div class="cards-grid-4">
+        {packages.map((pkg) => (
+          <PackageCard pkg={pkg} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Paket -->
+  <FAQ
+    items={generalFaqs}
+    title="Pertanyaan Seputar Paket Desain"
+    eyebrow="TANYA JAWAB PAKET"
+  />
+
+  <!-- CTA -->
+  <CTASection
+    title="Bingung Memilih Paket yang Tepat?"
+    description="Konsultasikan luasan lahan dan rencana proyek Anda via WhatsApp. Tim kami siap merekomendasikan paket yang paling sesuai dengan anggaran Anda."
+  />
+</MainLayout>
+

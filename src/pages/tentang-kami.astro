@@ -1,0 +1,110 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { siteConfig } from '../data/site';
+import { generalFaqs } from '../data/faqs';
+import SectionHeading from '../components/common/SectionHeading.astro';
+import FAQ from '../components/common/FAQ.astro';
+import CTASection from '../components/common/CTASection.astro';
+
+const title = 'Tentang Kami — Studio Arsitektur & Desain Online Bytecture';
+const description = 'Mengenal Bytecture, studio jasa arsitek online di Indonesia yang menghadirkan solusi desain rumah dan bangunan komersial modern, sehat, dan fungsional.';
+---
+
+<MainLayout
+  title={title}
+  description={description}
+  canonicalPath="/tentang-kami/"
+  breadcrumbs={[
+    { name: 'Beranda', url: '/' },
+    { name: 'Tentang Kami' },
+  ]}
+>
+  <!-- Hero Section -->
+  <section class="section-spacing" style="padding-top: 2rem;">
+    <div class="container">
+      <div style="max-width: 800px;">
+        <span class="eyebrow eyebrow-accent" style="margin-bottom: 0.75rem;">TENTANG BYTECTURE</span>
+        <h1 style="margin-bottom: 1.5rem;">Arsitektur yang Memuliakan Ruang, Cahaya, dan Kehidupan Keluarga</h1>
+        <p style="font-size: 1.15rem; line-height: 1.7; color: var(--color-text-secondary);">
+          Bytecture adalah studio perancangan arsitektur daring yang melayani konsultasi desain bangunan untuk seluruh wilayah Indonesia. Kami mendedikasikan keahlian desain untuk menciptakan hunian bernilai estetika tinggi, hemat energi, dan siap diwujudkan secara nyata.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Profil Perusahaan -->
+  <section class="section-spacing" style="background: var(--color-bg-canvas);">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center;">
+        <div style="background: var(--color-bg-surface); border: 1px solid var(--color-border); border-radius: var(--radius-2xl); padding: clamp(2rem, 5vw, 3.5rem); box-shadow: var(--glass-shadow-sm);">
+          <div style="max-width: 840px;">
+            <span class="eyebrow eyebrow-accent" style="margin-bottom: 0.75rem;">SIAPA KAMI</span>
+            <h2 style="margin-bottom: 1.25rem;">Menghadirkan Solusi Arsitek Berkualitas Tanpa Batasan Wilayah</h2>
+            <p style="margin-bottom: 1.25rem;">
+              Banyak pemilik lahan di berbagai pelosok Indonesia mendambakan rumah dengan tata letak optimal dan fasad modern, namun kesulitan menemukan tenaga arsitek perencana di kota mereka. Bytecture hadir menjembatani kebutuhan tersebut melalui pendekatan konsultasi digital yang terstruktur, transparan, dan komunikatif.
+            </p>
+            <p style="margin-bottom: 1.25rem;">
+              Kami memadukan pemahaman iklim tropis Indonesia—seperti intensitas curah hujan tinggi, radiasi panas matahari, dan arah hembusan angin—ke dalam gubahan massa arsitektur yang fungsional. Setiap ruang dirancang agar memiliki pencahayaan alami yang cukup di siang hari dan ventilasi silang yang menyejukkan.
+            </p>
+            <!-- TODO: KONFIRMASI PEMILIK BYTECTURE - Profil arsitek prinsipal, sertifikasi IAI/SKA, atau tahun pendirian resmi -->
+            <p style="font-size: 0.88rem; color: var(--color-text-muted); font-style: italic;">
+              Catatan: Layanan kami mencakup konsultasi konsep, perancangan denah 2D, visualisasi 3D fasad, serta penyusunan gambar kerja arsitektur digital.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mengapa Memilih Kami & Keunggulan -->
+  <section class="section-spacing">
+    <div class="container">
+      <SectionHeading
+        eyebrow="KEUNGGULAN PROSES & STANDAR KERJA"
+        title="4 Nilai Utama dalam Setiap Karya Perancangan Bytecture"
+        description="Kami berpegang teguh pada prinsip keterbukaan, akurasi gambar teknis, dan kenyamanan kolaborasi klien."
+        centered={true}
+      />
+
+      <div class="cards-grid-4">
+        <div style="background: var(--color-bg-surface); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 1.75rem;">
+          <h3 style="font-size: 1.2rem; margin-bottom: 0.6rem;">1. Terfokus pada Fungsi & Sirkulasi</h3>
+          <p style="font-size: 0.92rem; color: var(--color-text-secondary); line-height: 1.6;">
+            Ruangan indah tidak akan nyaman jika sirkulasinya macet atau gelap. Denah kami dirancang berdasarkan urutan aktivitas nyata keluarga Anda.
+          </p>
+        </div>
+
+        <div style="background: var(--color-bg-surface); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 1.75rem;">
+          <h3 style="font-size: 1.2rem; margin-bottom: 0.6rem;">2. Gambar Kerja Komprehensif</h3>
+          <p style="font-size: 0.92rem; color: var(--color-text-secondary); line-height: 1.6;">
+            Setiap garis gambar kerja disertai notasi dimensi presisi, detail sambungan material, dan jalur elektrikal/sanitasi yang mudah dibaca kontraktor.
+          </p>
+        </div>
+
+        <div style="background: var(--color-bg-surface); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 1.75rem;">
+          <h3 style="font-size: 1.2rem; margin-bottom: 0.6rem;">3. Review Interaktif & Bertahap</h3>
+          <p style="font-size: 0.92rem; color: var(--color-text-secondary); line-height: 1.6;">
+            Kami tidak langsung melompat ke tahap akhir. Evaluasi dilakukan bertahap mulai dari denah dasar, pemodelan 3D, hingga dokumen konstruksi.
+          </p>
+        </div>
+
+        <div style="background: var(--color-bg-surface); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 1.75rem;">
+          <h3 style="font-size: 1.2rem; margin-bottom: 0.6rem;">4. Komitmen Transparansi Tarif</h3>
+          <p style="font-size: 0.92rem; color: var(--color-text-secondary); line-height: 1.6;">
+            Penawaran biaya desain dihitung berdasarkan luas bangunan atau paket yang jelas, tanpa ada biaya tambahan tak terduga.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ 5 Pertanyaan -->
+  <FAQ items={generalFaqs} />
+
+  <!-- CTA -->
+  <CTASection
+    title="Siap Mewujudkan Hunian Idaman Anda?"
+    description="Diskusikan kebutuhan tata ruang dan anggaran proyek Anda bersama tim arsitek Bytecture via WhatsApp."
+  />
+</MainLayout>
+

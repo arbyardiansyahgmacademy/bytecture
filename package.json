@@ -1,0 +1,15 @@
+{
+  "name": "bytecture",
+  "version": "1.0.0",
+  "description": "Website Jasa Arsitek Online Indonesia",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^7.4.4"
+  }
+}

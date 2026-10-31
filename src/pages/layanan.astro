@@ -1,0 +1,53 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { services } from '../data/services';
+import { generalFaqs } from '../data/faqs';
+import ServiceCard from '../components/cards/ServiceCard.astro';
+import FAQ from '../components/common/FAQ.astro';
+import CTASection from '../components/common/CTASection.astro';
+
+const title = 'Layanan Jasa Arsitek & Desain Bangunan — Bytecture';
+const description = 'Katalog lengkap layanan jasa arsitek online Bytecture di Indonesia: desain rumah tinggal, bangunan komersial, desain interior, dan renovasi bangunan.';
+---
+
+<MainLayout
+  title={title}
+  description={description}
+  canonicalPath="/layanan/"
+  breadcrumbs={[
+    { name: 'Beranda', url: '/' },
+    { name: 'Layanan' },
+  ]}
+>
+  <section class="section-spacing" style="padding-top: 2rem;">
+    <div class="container">
+      <div style="max-width: 800px; margin-bottom: 3.5rem;">
+        <span class="eyebrow eyebrow-accent" style="margin-bottom: 0.75rem;">LAYANAN ARSITEKTUR DIGITAL</span>
+        <h1 style="margin-bottom: 1.25rem;">Solusi Perancangan Arsitektur untuk Berbagai Skala Kebutuhan</h1>
+        <p style="font-size: 1.15rem; line-height: 1.7; color: var(--color-text-secondary);">
+          Mulai dari konsep rumah tinggal baru, ruang usaha komersial, hingga pembaruan tata ruang interior. Seluruh layanan dikerjakan dengan standar gambar kerja terukur yang siap diaplikasikan kontraktor lokal Anda.
+        </p>
+      </div>
+
+      <div class="cards-grid-4">
+        {services.map((service) => (
+          <ServiceCard service={service} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Layanan -->
+  <FAQ
+    items={generalFaqs}
+    title="Pertanyaan Seputar Layanan Desain"
+    eyebrow="TANYA JAWAB LAYANAN"
+  />
+
+  <!-- CTA -->
+  <CTASection
+    title="Butuh Konsultasi Pemilihan Layanan?"
+    description="Sampaikan rencana dan kondisi lahan Anda, kami akan memberikan saran jenis layanan dan alur kerja yang paling efisien."
+  />
+</MainLayout>
+

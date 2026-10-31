@@ -1,0 +1,222 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { galleryItems } from '../data/gallery';
+import { generalFaqs } from '../data/faqs';
+import GalleryCard from '../components/cards/GalleryCard.astro';
+import FAQ from '../components/common/FAQ.astro';
+import CTASection from '../components/common/CTASection.astro';
+
+const title = 'Galeri Portofolio & Konsep Desain Arsitektur — Bytecture';
+const description = 'Koleksi galeri karya arsitektur, konsep desain rumah tinggal modern tropis, interior mewah, dan ruang komersial oleh Bytecture.';
+---
+
+<MainLayout
+  title={title}
+  description={description}
+  canonicalPath="/galeri/"
+  breadcrumbs={[
+    { name: 'Beranda', url: '/' },
+    { name: 'Galeri' },
+  ]}
+>
+  <section class="section-spacing" style="padding-top: 2rem;">
+    <div class="container">
+      <div style="max-width: 800px; margin-bottom: 2.5rem;">
+        <span class="eyebrow eyebrow-accent" style="margin-bottom: 0.75rem;">PORTOFOLIO & KONSEP EKSPLORATIF</span>
+        <h1 style="margin-bottom: 1.25rem;">Galeri Desain & Karya Perancangan Arsitektur</h1>
+        <p style="font-size: 1.15rem; line-height: 1.7; color: var(--color-text-secondary);">
+          Setiap karya merupakan wujud perpaduan harmonis antara karakter estetika kontemporer, pencahayaan alami, dan kenyamanan sirkulasi iklim tropis Indonesia.
+        </p>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div style="display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 2.5rem;">
+        <button class="btn btn-primary js-filter-btn" data-filter="all" style="padding: 0.5rem 1.25rem; font-size: 0.85rem;">
+          Semua Proyek
+        </button>
+        <button class="btn btn-secondary js-filter-btn" data-filter="Rumah Tinggal" style="padding: 0.5rem 1.25rem; font-size: 0.85rem;">
+          Rumah Tinggal
+        </button>
+        <button class="btn btn-secondary js-filter-btn" data-filter="Interior" style="padding: 0.5rem 1.25rem; font-size: 0.85rem;">
+          Interior
+        </button>
+        <button class="btn btn-secondary js-filter-btn" data-filter="Komersial" style="padding: 0.5rem 1.25rem; font-size: 0.85rem;">
+          Komersial
+        </button>
+        <button class="btn btn-secondary js-filter-btn" data-filter="Konsep Desain" style="padding: 0.5rem 1.25rem; font-size: 0.85rem;">
+          Konsep Desain
+        </button>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="cards-grid-3" id="gallery-grid">
+        {galleryItems.map((item, index) => (
+          <div class="gallery-item-wrapper" data-category={item.category}>
+            <GalleryCard item={item} index={index} />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Galeri -->
+  <FAQ
+    items={generalFaqs}
+    title="Tanya Jawab Portofolio & Konsep Desain"
+    eyebrow="INFORMASI GALERI"
+  />
+
+  <!-- CTA -->
+  <CTASection
+    title="Tertarik dengan Salah Satu Gaya Desain di Atas?"
+    description="Kirimkan tangkapan layar konsep yang Anda sukai ke WhatsApp kami, tim arsitek Bytecture akan membantu mengadaptasikannya ke lahan Anda."
+  />
+
+  <!-- Lightbox Modal -->
+  <div id="gallery-lightbox" class="gallery-lightbox-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Pratinjau Foto Galeri">
+    <div class="lightbox-content-box">
+      <button id="lightbox-close" class="lightbox-close-btn" aria-label="Tutup Pratinjau">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <button id="lightbox-prev" class="lightbox-nav-btn lightbox-nav-prev" aria-label="Gambar Sebelumnya">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+
+      <button id="lightbox-next" class="lightbox-nav-btn lightbox-nav-next" aria-label="Gambar Selanjutnya">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+
+      <div class="lightbox-media">
+        <img id="lightbox-img" src="" alt="Pratinjau detail arsitektur" />
+      </div>
+
+      <div class="lightbox-info">
+        <div>
+          <h4 id="lightbox-title" style="font-size: 1.2rem; color: #ffffff; margin-bottom: 0.25rem;"></h4>
+          <p id="lightbox-desc" style="font-size: 0.88rem; color: #9da3af;"></p>
+        </div>
+        <div id="lightbox-specs" style="font-size: 0.82rem; color: #d1d5db; white-space: nowrap;"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Filtering logic
+    const filterBtns = document.querySelectorAll('.js-filter-btn');
+    const items = document.querySelectorAll('.gallery-item-wrapper');
+
+    filterBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach((b) => {
+          b.classList.remove('btn-primary');
+          b.classList.add('btn-secondary');
+        });
+        btn.classList.remove('btn-secondary');
+        btn.classList.add('btn-primary');
+
+        const filter = btn.getAttribute('data-filter');
+        items.forEach((item) => {
+          const cat = item.getAttribute('data-category');
+          if (filter === 'all' || cat === filter) {
+            (item as HTMLElement).style.display = 'block';
+          } else {
+            (item as HTMLElement).style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Lightbox logic
+    const triggers = document.querySelectorAll('.js-lightbox-trigger');
+    const lightbox = document.getElementById('gallery-lightbox');
+    const lbImg = document.getElementById('lightbox-img') as HTMLImageElement | null;
+    const lbTitle = document.getElementById('lightbox-title');
+    const lbDesc = document.getElementById('lightbox-desc');
+    const lbSpecs = document.getElementById('lightbox-specs');
+    const closeBtn = document.getElementById('lightbox-close');
+    const prevBtn = document.getElementById('lightbox-prev');
+    const nextBtn = document.getElementById('lightbox-next');
+
+    let currentIndex = 0;
+    const itemsData: Array<{ src: string; title: string; desc: string; specs: string; alt: string }> = [];
+
+    triggers.forEach((trigger, idx) => {
+      const el = trigger as HTMLElement;
+      itemsData.push({
+        src: el.dataset.src || '',
+        title: el.dataset.title || '',
+        desc: el.dataset.desc || '',
+        specs: `${el.dataset.area || ''} • ${el.dataset.floors || ''} • ${el.dataset.style || ''}`,
+        alt: el.dataset.title || 'Foto galeri arsitektur',
+      });
+
+      const openThis = () => {
+        currentIndex = idx;
+        renderLightbox();
+        lightbox?.classList.add('active');
+        lightbox?.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      };
+
+      trigger.addEventListener('click', openThis);
+      trigger.addEventListener('keydown', (e: any) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openThis();
+        }
+      });
+    });
+
+    function renderLightbox() {
+      const data = itemsData[currentIndex];
+      if (!data) return;
+      if (lbImg) {
+        lbImg.src = data.src;
+        lbImg.alt = data.alt;
+      }
+      if (lbTitle) lbTitle.textContent = data.title;
+      if (lbDesc) lbDesc.textContent = data.desc;
+      if (lbSpecs) lbSpecs.textContent = data.specs;
+    }
+
+    function closeLightbox() {
+      lightbox?.classList.remove('active');
+      lightbox?.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    function showPrev() {
+      currentIndex = (currentIndex - 1 + itemsData.length) % itemsData.length;
+      renderLightbox();
+    }
+
+    function showNext() {
+      currentIndex = (currentIndex + 1) % itemsData.length;
+      renderLightbox();
+    }
+
+    closeBtn?.addEventListener('click', closeLightbox);
+    prevBtn?.addEventListener('click', (e) => { e.stopPropagation(); showPrev(); });
+    nextBtn?.addEventListener('click', (e) => { e.stopPropagation(); showNext(); });
+
+    lightbox?.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (!lightbox?.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') showPrev();
+      if (e.key === 'ArrowRight') showNext();
+    });
+  </script>
+</MainLayout>
+

@@ -1,0 +1,142 @@
+---
+import '../styles/global.css';
+import '../styles/layout.css';
+import '../styles/components.css';
+
+import { siteConfig } from '../data/site';
+import Sidebar from '../components/layout/Sidebar.astro';
+import Header from '../components/layout/Header.astro';
+import MobileBottomNav from '../components/layout/MobileBottomNav.astro';
+import Breadcrumb, { type BreadcrumbItem } from '../components/layout/Breadcrumb.astro';
+import Footer from '../components/layout/Footer.astro';
+import WhatsAppFloat from '../components/common/WhatsAppFloat.astro';
+import BackToTop from '../components/common/BackToTop.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalPath?: string;
+  breadcrumbs?: BreadcrumbItem[];
+  ogImage?: string;
+  ogType?: 'website' | 'article';
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  canonicalPath = Astro.url.pathname,
+  breadcrumbs = [{ name: 'Beranda', url: '/' }],
+  ogImage = '/images/hero/hero-bg.webp',
+  ogType = 'website',
+  noindex = false,
+} = Astro.props;
+
+// Ensure trailing slash for canonical
+const cleanPath = canonicalPath.endsWith('/') ? canonicalPath : `${canonicalPath}/`;
+const canonicalUrl = `${siteConfig.domain}${cleanPath === '//' ? '/' : cleanPath}`;
+const absoluteOgImage = `${siteConfig.domain}${ogImage}`;
+
+// Organization Schema (ProfessionalService)
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: siteConfig.name,
+  url: siteConfig.domain,
+  logo: `${siteConfig.domain}/images/logo/logo-bytecture.webp`,
+  image: absoluteOgImage,
+  description: siteConfig.description,
+  telephone: `+${siteConfig.phoneRaw}`,
+  areaServed: {
+    '@type': 'Country',
+    name: 'Indonesia',
+  },
+  priceRange: '$$',
+  sameAs: [
+    siteConfig.socials.instagram,
+    siteConfig.socials.facebook,
+    siteConfig.socials.youtube,
+  ],
+};
+
+const webSiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: siteConfig.name,
+  url: siteConfig.domain,
+};
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/webp" href="/images/logo/logo-bytecture.webp" />
+    <link rel="apple-touch-icon" href="/images/logo/logo-bytecture.webp" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    {noindex ? (
+      <meta name="robots" content="noindex, nofollow" />
+    ) : (
+      <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    )}
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={absoluteOgImage} />
+    <meta property="og:site_name" content={siteConfig.name} />
+    <meta property="og:locale" content="id_ID" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalUrl} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={absoluteOgImage} />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(webSiteSchema)} />
+  </head>
+  <body>
+    <div class="app-shell">
+      <!-- Desktop Sidebar Navigation -->
+      <Sidebar currentPath={Astro.url.pathname} />
+
+      <!-- Main Column -->
+      <div class="app-main">
+        <!-- Mobile Header -->
+        <Header currentPath={Astro.url.pathname} />
+
+        <!-- Breadcrumbs (Mandatory on All Pages) -->
+        <Breadcrumb items={breadcrumbs} />
+
+        <!-- Page Specific Content -->
+        <main id="main-content">
+          <slot />
+        </main>
+
+        <!-- Footer -->
+        <Footer />
+      </div>
+
+      <!-- Mobile Bottom Dock Navigation -->
+      <MobileBottomNav currentPath={Astro.url.pathname} />
+
+      <!-- Floating Action Buttons -->
+      <div class="floating-actions" aria-label="Aksi Cepat">
+        <BackToTop />
+        <WhatsAppFloat />
+      </div>
+    </div>
+  </body>
+</html>
+

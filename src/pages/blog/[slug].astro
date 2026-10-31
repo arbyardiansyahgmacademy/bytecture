@@ -1,0 +1,593 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import { articles, type ArticleItem } from '../../data/articles';
+import { packages } from '../../data/packages';
+import { siteConfig } from '../../data/site';
+
+export function getStaticPaths() {
+  return articles.map((article) => ({
+    params: { slug: article.slug },
+    props: { article },
+  }));
+}
+
+interface Props {
+  article: ArticleItem;
+}
+
+const { article } = Astro.props;
+
+// Other articles for related sidebar & recommendations
+const otherArticles = articles.filter((a) => a.slug !== article.slug);
+const recommendedPackages = packages.slice(0, 3);
+
+const pageTitle = `${article.title} — Bytecture`;
+const pageDescription = article.excerpt;
+const articleUrl = `${siteConfig.domain}/blog/${article.slug}/`;
+const imageUrl = `${siteConfig.domain}${article.image}`;
+
+const formattedPublishDate = new Date(article.publishDate).toLocaleDateString('id-ID', {
+  day: 'numeric',
+  month: 'short',
+  year: 'numeric',
+});
+
+// STRUCTURED DATA (JSON-LD SEO 2026 with @graph)
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Article',
+      '@id': `${articleUrl}#article`,
+      headline: article.title,
+      description: article.excerpt,
+      url: articleUrl,
+      datePublished: `${article.publishDate}T08:00:00+07:00`,
+      dateModified: `${article.modifiedDate || article.publishDate}T08:00:00+07:00`,
+      author: {
+        '@type': 'Person',
+        name: article.author,
+        jobTitle: 'Architectural Consultant',
+        url: `${siteConfig.domain}/tentang-kami/`,
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: siteConfig.name,
+        url: siteConfig.domain,
+        logo: {
+          '@type': 'ImageObject',
+          url: `${siteConfig.domain}/images/logo/logo-bytecture.webp`,
+        },
+      },
+      image: imageUrl,
+      mainEntityOfPage: articleUrl,
+      inLanguage: 'id-ID',
+    },
+    {
+      '@type': 'BreadcrumbList',
+      '@id': `${articleUrl}#breadcrumb`,
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Beranda',
+          item: `${siteConfig.domain}/`,
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Blog',
+          item: `${siteConfig.domain}/blog/`,
+        },
+        {
+          '@type': 'ListItem',
+          position: 3,
+          name: article.title,
+          item: articleUrl,
+        },
+      ],
+    },
+    {
+      '@type': 'FAQPage',
+      '@id': `${articleUrl}#faq`,
+      mainEntity: article.faqs.map((faq) => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: faq.answer,
+        },
+      })),
+    },
+  ],
+};
+---
+
+<MainLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath={`/blog/${article.slug}/`}
+  breadcrumbs={[
+    { name: 'Beranda', url: '/' },
+    { name: 'Blog', url: '/blog/' },
+    { name: article.title },
+  ]}
+  ogImage={article.image}
+  ogType="article"
+>
+  <!-- SEO 2026 Structured Data (@graph) -->
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+
+  <!-- MAIN ARTICLE CONTAINER -->
+  <div class="article-page-main" id="main">
+    <div class="container">
+      <div class="article-wrapper">
+        <!-- =============================================================
+             LEFT: MAIN ARTICLE COLUMN
+             ============================================================= -->
+        <article class="article-main">
+          <!-- Article Header -->
+          <header class="article-header">
+            <span class="news-badge badge-primary">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+              </svg>
+              <span>{article.category}</span>
+            </span>
+
+            <h1>{article.title}</h1>
+
+            <div class="article-meta">
+              <div class="author-avatar">
+                <img
+                  src="/images/author/author-artikel-arby-ardiansyah.webp"
+                  alt={article.author}
+                  loading="lazy"
+                  width="48"
+                  height="48"
+                />
+              </div>
+
+              <div class="author-info">
+                <div class="author-name-row">
+                  <span class="author-name">{article.author}</span>
+                  <span class="meta-verified-badge">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                    </svg>
+                    <span>Verified</span>
+                  </span>
+                </div>
+
+                <div class="post-meta-details">
+                  <span>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect>
+                      <line x1="16" y1="2" x2="16" y2="6"></line>
+                      <line x1="8" y1="2" x2="8" y2="6"></line>
+                      <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    <span>{formattedPublishDate}</span>
+                  </span>
+                  <span class="meta-separator">&bull;</span>
+                  <span>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    <span>{article.readingTime}</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </header>
+
+          <!-- HERO FEATURED IMAGE -->
+          <figure class="article-hero">
+            <img
+              src={article.image}
+              alt={article.alt}
+              width="1600"
+              height="900"
+              loading="eager"
+              fetchpriority="high"
+            />
+            <figcaption>{article.heroCaption}</figcaption>
+          </figure>
+
+          <!-- ARTICLE SUMMARY BOX -->
+          <div class="article-summary">
+            <h3>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-dark)" stroke-width="2.2">
+                <path d="m9 11 3 3L22 4"></path>
+                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+              </svg>
+              <span>Ringkasan Utama Artikel</span>
+            </h3>
+            <ul>
+              {article.summaryPoints.map((point) => (
+                <li>
+                  <Fragment set:html={point.replace(/^([^:]+):/, '<strong>$1:</strong>')} />
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- TABLE OF CONTENTS (AUTO GENERATED) -->
+          <div class="toc-wrapper" id="tocWrapper">
+            <div class="toc-header" id="tocToggle">
+              <h3>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
+                  <line x1="3" y1="12" x2="21" y2="12"></line>
+                  <line x1="3" y1="18" x2="15" y2="18"></line>
+                </svg>
+                <span>Daftar Isi Artikel</span>
+              </h3>
+              <svg class="toc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+            <div class="toc-body" id="tocBody">
+              <ul class="toc-list" id="tocList"></ul>
+            </div>
+          </div>
+
+          <!-- ARTICLE BODY CONTENT -->
+          <div class="article-content" id="articleContent">
+            <Fragment set:html={article.contentHtml} />
+          </div>
+
+          <!-- CALL TO ACTION BANNER (IN-ARTICLE) -->
+          <div class="cta-band">
+            <h3>Rencanakan Desain Bangunan Terbaik Anda Bersama Bytecture</h3>
+            <p>Konsultasikan ukuran lahan, preferensi gaya arsitektur, dan estimasi bujet proyek Anda secara gratis via WhatsApp resmi Bytecture.</p>
+            <a
+              href={`${siteConfig.whatsappUrl}?text=${encodeURIComponent(`Halo Bytecture, saya membaca artikel "${article.title}" dan ingin berkonsultasi mengenai rencana proyek saya.`)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-wa"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M8.53 7.33C8.37 7.33 8.1 7.39 7.87 7.64C7.65 7.89 7.02 8.48 7.02 9.68C7.02 10.88 7.89 12.04 8.01 12.2C8.13 12.37 9.71 14.81 12.13 15.86C14.15 16.73 14.56 16.56 15 16.51C15.44 16.47 16.42 15.93 16.62 15.36C16.82 14.79 16.82 14.3 16.76 14.2C16.7 14.1 16.54 14.04 16.3 13.92C16.06 13.8 14.88 13.22 14.66 13.14C14.44 13.06 14.28 13.02 14.12 13.26C13.96 13.5 13.5 14.1 13.36 14.26C13.22 14.42 13.08 14.44 12.84 14.32C12.6 14.2 11.83 13.95 10.91 13.13C10.2 12.5 9.71 11.71 9.58 11.47C9.44 11.23 9.56 11.1 9.68 10.98C9.79 10.87 9.93 10.69 10.05 10.55C10.17 10.41 10.21 10.31 10.29 10.15C10.37 9.99 10.33 9.85 10.27 9.73C10.21 9.61 9.75 8.47 9.56 7.99C9.37 7.53 9.17 7.59 9.03 7.58C8.89 7.58 8.73 7.58 8.57 7.58L8.53 7.33Z"/>
+              </svg>
+              <span>Konsultasi Gratis via WhatsApp</span>
+            </a>
+          </div>
+
+          <!-- FAQ SECTION (REFINED & ELEGANT) -->
+          <div class="faq-section" id="faq-section">
+            <div class="faq-header-block">
+              <span class="faq-eyebrow">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                  <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+                <span>TANYA JAWAB PANDUAN</span>
+              </span>
+              <h3>Pertanyaan Sering Diajukan (FAQ)</h3>
+              <p class="faq-header-desc">Kompilasi jawaban teknis & praktis langsung dari Lead Architect Bytecture seputar topik artikel ini.</p>
+            </div>
+
+            <div class="faq-container">
+              {article.faqs.map((faq, index) => (
+                <div class={`faq-item ${index === 0 ? 'active' : ''}`}>
+                  <button class="faq-question" type="button" aria-expanded={index === 0 ? 'true' : 'false'}>
+                    <span class="faq-q-num">{String(index + 1).padStart(2, '0')}</span>
+                    <span class="faq-q-text">{faq.question}</span>
+                    <span class="faq-toggle-badge" aria-hidden="true">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                      </svg>
+                    </span>
+                  </button>
+                  <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                      <p class="faq-answer-text">{faq.answer}</p>
+                      <div class="faq-verified-row">
+                        <span class="faq-author-verified">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="#C89B6B">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                          </svg>
+                          <span>Dijawab oleh <strong>Arby Ardiansyah</strong> &bull; Lead Architect</span>
+                        </span>
+                        <a
+                          href={`${siteConfig.whatsappUrl}?text=${encodeURIComponent(`Halo Arsitek Arby Ardiansyah, saya ingin bertanya lebih lanjut tentang FAQ: ${faq.question}`)}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="faq-consult-btn"
+                        >
+                          <span>Tanya via WhatsApp</span>
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                            <line x1="7" y1="17" x2="17" y2="7"></line>
+                            <polyline points="7 7 17 7 17 17"></polyline>
+                          </svg>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- AUTHOR BIO BOX -->
+          <div class="author-bio">
+            <div class="avatar">
+              <img
+                src="/images/author/author-artikel-arby-ardiansyah.webp"
+                alt={article.author}
+                loading="lazy"
+                width="80"
+                height="80"
+              />
+            </div>
+            <div class="info">
+              <h4>{article.author}</h4>
+              <div class="role">{article.authorRole}</div>
+              <p>
+                Praktisi perancangan arsitektur dan tata ruang tropis modern dengan pengalaman menangani ratusan konsultasi desain rumah tinggal, renovasi, dan bangunan komersial untuk klien dari berbagai provinsi di Indonesia.
+              </p>
+            </div>
+          </div>
+
+          <!-- SHARE BUTTONS (OFFICIAL APPLICATION BRAND COLORS & ICONS) -->
+          <div class="share-section">
+            <span class="label">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="18" cy="5" r="3"></circle>
+                <circle cx="6" cy="12" r="3"></circle>
+                <circle cx="18" cy="19" r="3"></circle>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+              </svg>
+              <span>Bagikan Artikel:</span>
+            </span>
+
+            <button class="share-btn whatsapp" data-share="wa" aria-label="Bagikan ke WhatsApp">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M8.53 7.33C8.37 7.33 8.1 7.39 7.87 7.64C7.65 7.89 7.02 8.48 7.02 9.68C7.02 10.88 7.89 12.04 8.01 12.2C8.13 12.37 9.71 14.81 12.13 15.86C14.15 16.73 14.56 16.56 15 16.51C15.44 16.47 16.42 15.93 16.62 15.36C16.82 14.79 16.82 14.3 16.76 14.2C16.7 14.1 16.54 14.04 16.3 13.92C16.06 13.8 14.88 13.22 14.66 13.14C14.44 13.06 14.28 13.02 14.12 13.26C13.96 13.5 13.5 14.1 13.36 14.26C13.22 14.42 13.08 14.44 12.84 14.32C12.6 14.2 11.83 13.95 10.91 13.13C10.2 12.5 9.71 11.71 9.58 11.47C9.44 11.23 9.56 11.1 9.68 10.98C9.79 10.87 9.93 10.69 10.05 10.55C10.17 10.41 10.21 10.31 10.29 10.15C10.37 9.99 10.33 9.85 10.27 9.73C10.21 9.61 9.75 8.47 9.56 7.99C9.37 7.53 9.17 7.59 9.03 7.58C8.89 7.58 8.73 7.58 8.57 7.58L8.53 7.33Z"/>
+              </svg>
+              <span>WhatsApp</span>
+            </button>
+
+            <button class="share-btn facebook" data-share="fb" aria-label="Bagikan ke Facebook">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+              <span>Facebook</span>
+            </button>
+
+            <button class="share-btn twitter" data-share="tw" aria-label="Bagikan ke Twitter / X">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+              <span>Twitter / X</span>
+            </button>
+
+            <button class="share-btn linkedin" data-share="li" aria-label="Bagikan ke LinkedIn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v7.6h2.79v-7.6H6.46M7.86 6.88a1.63 1.63 0 1 0 0 3.25 1.63 1.63 0 0 0 0-3.25z"/>
+              </svg>
+              <span>LinkedIn</span>
+            </button>
+
+            <button class="share-btn copy" data-share="copy" aria-label="Salin Link">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
+                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
+              </svg>
+              <span>Salin Link</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- =============================================================
+             RIGHT: ARTICLE SIDEBAR
+             ============================================================= -->
+        <aside class="article-sidebar">
+          <!-- 1. Related Articles Widget -->
+          <div class="sidebar-related">
+            <h3>Artikel Terkait</h3>
+            {otherArticles.slice(0, 2).map((rel) => (
+              <div class="related-item">
+                <div class="thumb">
+                  <img src={rel.image} alt={rel.title} loading="lazy" width="80" height="80" />
+                </div>
+                <div class="content">
+                  <h4><a href={`/blog/${rel.slug}/`}>{rel.title}</a></h4>
+                  <p>{rel.excerpt.slice(0, 80)}...</p>
+                  <a href={`/blog/${rel.slug}/`} class="readmore">Baca Selengkapnya &rarr;</a>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <!-- 2. Hero Promo Banner -->
+          <div class="sidebar-hero">
+            <div class="hero-category">PAKET ARSITEKTUR 2026</div>
+            <h4>Paket Desain Lengkap & Gambar Kerja All-In</h4>
+            <p>Dapatkan berkas denah 2D lengkap ukuran, render 3D fasad eksterior & interior, dan gambar kerja MEP siap tender.</p>
+            <a
+              href={`${siteConfig.whatsappUrl}?text=${encodeURIComponent('Halo Bytecture, saya ingin konsultasi mengenai Paket Desain Lengkap.')}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-cta-link"
+            >
+              Tanya Paket Sekarang
+            </a>
+          </div>
+
+          <!-- 3. Video Highlight / Portfolio Showcase Card -->
+          <div class="news-widget">
+            <div class="news-widget-header">
+              <span class="news-widget-badge">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+                <span>SHOWCASE DESAIN</span>
+              </span>
+              <span class="news-widget-tag">3D PORTOFOLIO</span>
+            </div>
+
+            <a href="/galeri/" style="text-decoration:none; display:block;">
+              <div class="news-widget-video-wrap">
+                <img
+                  src="/images/gallery/villa-cliff.webp"
+                  alt="Showcase Desain Villa Tropis Bytecture"
+                  class="news-widget-video-thumb"
+                  loading="lazy"
+                  width="320"
+                  height="180"
+                />
+                <div class="news-widget-video-overlay"></div>
+                <div class="news-widget-video-play">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                  </svg>
+                </div>
+                <span class="news-widget-video-duration">Katalog 3D</span>
+              </div>
+              <h4 class="news-widget-video-title">Eksplorasi Konsep Villa Seacliff Modern Minimalis</h4>
+              <p class="news-widget-video-desc">Inspirasi gubahan massa arsitektur dengan bukaan kaca lebar, infinity pool, dan integrasi lanskap alami.</p>
+              <span class="news-widget-action">Buka Galeri Desain &rarr;</span>
+            </a>
+          </div>
+
+          <!-- 4. Consultation Box -->
+          <div class="sidebar-hero sidebar-consult-box">
+            <div class="hero-category consult-cat">KONSULTASI GRATIS</div>
+            <h4 class="consult-title">Rencanakan Hunian Anda</h4>
+            <p class="consult-desc">Diskusikan ukuran lahan, jumlah kamar, preferensi gaya, dan estimasi biaya bersama arsitek kami via WhatsApp.</p>
+            <a
+              href={`${siteConfig.whatsappUrl}?text=${encodeURIComponent('Halo Bytecture, saya ingin konsultasi gratis mengenai denah dan desain rumah saya.')}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-cta-wa"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M8.53 7.33C8.37 7.33 8.1 7.39 7.87 7.64C7.65 7.89 7.02 8.48 7.02 9.68C7.02 10.88 7.89 12.04 8.01 12.2C8.13 12.37 9.71 14.81 12.13 15.86C14.15 16.73 14.56 16.56 15 16.51C15.44 16.47 16.42 15.93 16.62 15.36C16.82 14.79 16.82 14.3 16.76 14.2C16.7 14.1 16.54 14.04 16.3 13.92C16.06 13.8 14.88 13.22 14.66 13.14C14.44 13.06 14.28 13.02 14.12 13.26C13.96 13.5 13.5 14.1 13.36 14.26C13.22 14.42 13.08 14.44 12.84 14.32C12.6 14.2 11.83 13.95 10.91 13.13C10.2 12.5 9.71 11.71 9.58 11.47C9.44 11.23 9.56 11.1 9.68 10.98C9.79 10.87 9.93 10.69 10.05 10.55C10.17 10.41 10.21 10.31 10.29 10.15C10.37 9.99 10.33 9.85 10.27 9.73C10.21 9.61 9.75 8.47 9.56 7.99C9.37 7.53 9.17 7.59 9.03 7.58C8.89 7.58 8.73 7.58 8.57 7.58L8.53 7.33Z"/>
+              </svg>
+              <span>Chat WhatsApp Arsitek</span>
+            </a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- RECOMMENDED PACKAGES STRIP (BELOW MAIN ARTICLE) -->
+  <section class="article-recommendations-strip">
+    <div class="container">
+      <div class="strip-header">
+        <span class="news-badge badge-primary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+          <span>REKOMENDASI LAYANAN & PAKET</span>
+        </span>
+        <h2>Pilihan Paket Desain Arsitektur Terfavorit</h2>
+      </div>
+
+      <div class="recommendations grid-3">
+        {recommendedPackages.map((pkg) => (
+          <div class="recommend-item">
+            <div class="thumb">
+              <img src={pkg.image} alt={pkg.title} loading="lazy" width="400" height="240" />
+            </div>
+            <div class="body">
+              <span class="prod-cat-label">{pkg.badge || 'Paket Pilihan'}</span>
+              <h4><a href={`/paket/${pkg.slug}/`}>{pkg.title}</a></h4>
+              <p>{pkg.shortDescription}</p>
+              <div class="rec-price-row">
+                <strong>{pkg.priceDisplay}</strong>
+              </div>
+              <a href={`/paket/${pkg.slug}/`} class="prod-card-link-auto">Lihat Detail Paket &rarr;</a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<!-- Client Side Scripts (TOC Generation, TOC Toggle, FAQ Toggle, Social Share) -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // 1. Generate Table of Contents automatically from H2 in #articleContent
+    const content = document.getElementById('articleContent');
+    const tocList = document.getElementById('tocList');
+    if (content && tocList) {
+      const headings = content.querySelectorAll('h2');
+      headings.forEach((h, index) => {
+        const id = h.id || `section-${index + 1}`;
+        if (!h.id) h.id = id;
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = `#${id}`;
+        a.textContent = h.textContent;
+        li.appendChild(a);
+        tocList.appendChild(li);
+      });
+    }
+
+    // 2. TOC Accordion Toggle
+    const tocToggle = document.getElementById('tocToggle');
+    const tocBody = document.getElementById('tocBody');
+    if (tocToggle && tocBody) {
+      tocToggle.addEventListener('click', () => {
+        tocToggle.classList.toggle('active');
+        tocBody.classList.toggle('open');
+      });
+    }
+
+    // 3. FAQ Accordion Toggle
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    faqQuestions.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        if (!item) return;
+        const isActive = item.classList.contains('active');
+        document.querySelectorAll('.faq-item').forEach((i) => i.classList.remove('active'));
+        if (!isActive) {
+          item.classList.add('active');
+        }
+      });
+    });
+
+    // 4. Social Share Buttons Handler
+    const currentUrl = encodeURIComponent(window.location.href);
+    const currentTitle = encodeURIComponent(document.title);
+
+    document.querySelectorAll('.share-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const type = btn.getAttribute('data-share');
+        let shareUrl = '';
+        switch (type) {
+          case 'wa':
+            shareUrl = `https://wa.me/?text=${currentTitle}%20${currentUrl}`;
+            break;
+          case 'fb':
+            shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
+            break;
+          case 'tw':
+            shareUrl = `https://twitter.com/intent/tweet?text=${currentTitle}&url=${currentUrl}`;
+            break;
+          case 'li':
+            shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${currentUrl}`;
+            break;
+          case 'copy':
+            navigator.clipboard.writeText(window.location.href).then(() => {
+              alert('Tautan artikel berhasil disalin ke clipboard!');
+            });
+            return;
+        }
+        if (shareUrl) window.open(shareUrl, '_blank', 'width=600,height=500');
+      });
+    });
+  });
+</script>

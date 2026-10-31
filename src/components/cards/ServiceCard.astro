@@ -1,0 +1,55 @@
+---
+import type { ServiceItem } from '../../data/services';
+
+interface Props {
+  service: ServiceItem;
+}
+
+const { service } = Astro.props;
+---
+
+<article class="service-card">
+  <div class="service-card-media">
+    <img
+      src={service.image}
+      alt={`Layanan ${service.title} oleh Bytecture`}
+      loading="lazy"
+      width="800"
+      height="500"
+    />
+    {service.badge && (
+      <span class="badge-pill badge-glass service-card-badge">
+        {service.badge}
+      </span>
+    )}
+  </div>
+
+  <div class="service-card-body">
+    <h3 class="service-card-title">{service.title}</h3>
+    <p class="service-card-desc">{service.shortDescription}</p>
+
+    <ul class="service-card-benefits">
+      {service.benefits.slice(0, 3).map((benefit) => (
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>{benefit}</span>
+        </li>
+      ))}
+    </ul>
+
+    <div class="service-card-footer">
+      <a href={`/layanan/${service.slug}/`} class="btn-link" style="display: inline-flex; align-items: center; gap: 0.5rem; font-weight: 600; font-size: 0.92rem; color: var(--color-text-primary);">
+        <span>Detail Layanan</span>
+      </a>
+      <a href={`/layanan/${service.slug}/`} class="btn-circle-arrow" aria-label={`Detail Layanan ${service.title}`}>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <line x1="7" y1="17" x2="17" y2="7"></line>
+          <polyline points="7 7 17 7 17 17"></polyline>
+        </svg>
+      </a>
+    </div>
+  </div>
+</article>
+

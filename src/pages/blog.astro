@@ -1,0 +1,53 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { articles } from '../data/articles';
+import { generalFaqs } from '../data/faqs';
+import BlogCard from '../components/cards/BlogCard.astro';
+import FAQ from '../components/common/FAQ.astro';
+import CTASection from '../components/common/CTASection.astro';
+
+const title = 'Blog Arsitektur & Panduan Bangun Rumah — Bytecture';
+const description = 'Kumpulan artikel edukasi arsitektur, panduan memilih jasa arsitek online, tahapan desain rumah, dan tips menghitung estimasi biaya konstruksi.';
+---
+
+<MainLayout
+  title={title}
+  description={description}
+  canonicalPath="/blog/"
+  breadcrumbs={[
+    { name: 'Beranda', url: '/' },
+    { name: 'Blog' },
+  ]}
+>
+  <section class="section-spacing" style="padding-top: 2rem;">
+    <div class="container">
+      <div style="max-width: 800px; margin-bottom: 3.5rem;">
+        <span class="eyebrow eyebrow-accent" style="margin-bottom: 0.75rem;">EDUKASI & INSIGHT ARSITEKTUR</span>
+        <h1 style="margin-bottom: 1.25rem;">Wawasan, Panduan, dan Tips Membangun Hunian</h1>
+        <p style="font-size: 1.15rem; line-height: 1.7; color: var(--color-text-secondary);">
+          Artikel berbasis pengalaman teknis untuk membantu Anda mengambil keputusan terbaik dalam perencanaan tata ruang, pemilihan material, dan efisiensi biaya konstruksi.
+        </p>
+      </div>
+
+      <div class="cards-grid-3">
+        {articles.map((article) => (
+          <BlogCard article={article} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Blog -->
+  <FAQ
+    items={generalFaqs}
+    title="Pertanyaan Seputar Perencanaan Rumah"
+    eyebrow="TANYA JAWAB PERENCANAAN"
+  />
+
+  <!-- CTA -->
+  <CTASection
+    title="Punya Pertanyaan Spesifik Mengenai Lahan Anda?"
+    description="Tim arsitek Bytecture siap berdiskusi secara langsung melalui chat WhatsApp untuk membedah potensi denah terbaik properti Anda."
+  />
+</MainLayout>
+

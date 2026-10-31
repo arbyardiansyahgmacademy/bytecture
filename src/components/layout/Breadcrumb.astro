@@ -1,0 +1,331 @@
+---
+import { siteConfig } from '../../data/site';
+
+export interface BreadcrumbItem {
+  name: string;
+  url?: string;
+}
+
+interface Props {
+  items: BreadcrumbItem[];
+}
+
+const { items } = Astro.props;
+
+// JSON-LD BreadcrumbList Schema
+const schemaBreadcrumbs = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: items.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.name,
+    item: item.url ? `${siteConfig.domain}${item.url}` : undefined,
+  })),
+};
+---
+
+<div class="breadcrumb-bar-wrapper">
+  <div class="container breadcrumb-inner-flex">
+    <!-- Left: Breadcrumb Navigation -->
+    <nav class="breadcrumb-nav-box" aria-label="Breadcrumb">
+      <ol class="breadcrumb-list">
+        {items.map((item, index) => {
+          const isFirst = index === 0;
+          const isLast = index === items.length - 1;
+
+          return (
+            <li class="breadcrumb-item">
+              {index > 0 && (
+                <svg class="breadcrumb-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              )}
+
+              {isLast || !item.url ? (
+                <span class="breadcrumb-current" aria-current="page">
+                  {isFirst && (
+                    <svg class="breadcrumb-home-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                      <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                  )}
+                  <span>{item.name}</span>
+                </span>
+              ) : (
+                <a href={item.url} class="breadcrumb-link">
+                  {isFirst && (
+                    <svg class="breadcrumb-home-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                      <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                  )}
+                  <span>{item.name}</span>
+                </a>
+              )}
+            </li>
+          );
+        })}
+      </ol>
+    </nav>
+
+    <!-- Right: Indonesian Realtime WIB Clock & Date Widget -->
+    <div class="realtime-wib-widget" id="realtime-wib-box" title="Waktu Indonesia Barat (WIB) Real-Time">
+      <div class="live-dot-wrap" aria-hidden="true">
+        <span class="live-pulsing-dot"></span>
+        <span class="live-text-label">LIVE WIB</span>
+      </div>
+
+      <div class="wib-divider" aria-hidden="true"></div>
+
+      <!-- Realtime Clock -->
+      <div class="wib-time-display">
+        <svg class="wib-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        <span id="live-wib-time" class="live-clock-digits">--:--:-- WIB</span>
+      </div>
+
+      <div class="wib-divider wib-date-sep" aria-hidden="true"></div>
+
+      <!-- Date Display -->
+      <div class="wib-date-display">
+        <svg class="wib-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        <span id="live-wib-date" class="live-date-text">Memuat tanggal...</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Schema.org BreadcrumbList -->
+  <script type="application/ld+json" set:html={JSON.stringify(schemaBreadcrumbs)} />
+</div>
+
+<style>
+  .breadcrumb-bar-wrapper {
+    width: 100%;
+    padding: 0.85rem 0 0.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .breadcrumb-bar-wrapper {
+      position: sticky;
+      top: 0;
+      z-index: 80;
+      background: rgba(244, 244, 246, 0.94);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(20, 21, 23, 0.06);
+    }
+  }
+
+  .breadcrumb-inner-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+  }
+
+  /* Left Breadcrumb Nav Box */
+  .breadcrumb-nav-box {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(20, 21, 23, 0.08);
+    border-radius: var(--radius-pill);
+    padding: 0.4rem 1rem;
+    box-shadow: 0 4px 16px rgba(18, 19, 22, 0.03);
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  .breadcrumb-list {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.84rem;
+    white-space: nowrap;
+  }
+
+  .breadcrumb-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+  }
+
+  .breadcrumb-chevron {
+    width: 12px;
+    height: 12px;
+    color: var(--color-text-muted);
+    opacity: 0.6;
+    flex-shrink: 0;
+  }
+
+  .breadcrumb-home-icon {
+    width: 15px;
+    height: 15px;
+    margin-right: 0.3rem;
+    color: var(--color-accent-dark);
+    flex-shrink: 0;
+  }
+
+  .breadcrumb-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--color-text-secondary);
+    font-weight: 500;
+    transition: color var(--transition-fast);
+  }
+
+  .breadcrumb-link:hover {
+    color: var(--color-text-primary);
+  }
+
+  .breadcrumb-current {
+    display: inline-flex;
+    align-items: center;
+    color: var(--color-text-primary);
+    font-weight: 600;
+  }
+
+  /* Right Real-Time WIB Clock & Date Widget */
+  .realtime-wib-widget {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(200, 155, 107, 0.35);
+    border-radius: var(--radius-pill);
+    padding: 0.38rem 0.95rem;
+    font-size: 0.82rem;
+    box-shadow: 0 4px 18px rgba(18, 19, 22, 0.04);
+  }
+
+  .live-dot-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .live-pulsing-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #16a34a;
+    box-shadow: 0 0 0 rgba(22, 163, 74, 0.4);
+    animation: pulseDot 2s infinite;
+  }
+
+  @keyframes pulseDot {
+    0% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.7);
+    }
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 6px rgba(22, 163, 74, 0);
+    }
+    100% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(22, 163, 74, 0);
+    }
+  }
+
+  .live-text-label {
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    color: #15803d;
+  }
+
+  .wib-divider {
+    width: 1px;
+    height: 14px;
+    background: rgba(20, 21, 23, 0.12);
+  }
+
+  .wib-time-display, .wib-date-display {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .wib-icon {
+    width: 13px;
+    height: 13px;
+    color: var(--color-accent-dark);
+    flex-shrink: 0;
+  }
+
+  .live-clock-digits {
+    font-family: var(--font-family-sans);
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    letter-spacing: 0.02em;
+  }
+
+  .live-date-text {
+    font-weight: 500;
+    color: var(--color-text-secondary);
+  }
+
+  @media (max-width: 640px) {
+    .wib-date-sep, .wib-date-display {
+      display: none;
+    }
+    .breadcrumb-inner-flex {
+      gap: 0.5rem;
+    }
+  }
+</style>
+
+<script>
+  function updateWibClock() {
+    const timeEl = document.getElementById('live-wib-time');
+    const dateEl = document.getElementById('live-wib-date');
+    if (!timeEl && !dateEl) return;
+
+    const now = new Date();
+
+    // Force Asia/Jakarta timezone
+    const timeFormatter = new Intl.DateTimeFormat('id-ID', {
+      timeZone: 'Asia/Jakarta',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: false,
+    });
+
+    const dateFormatter = new Intl.DateTimeFormat('id-ID', {
+      timeZone: 'Asia/Jakarta',
+      weekday: 'short',
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric',
+    });
+
+    if (timeEl) {
+      timeEl.textContent = `${timeFormatter.format(now).replace(/\./g, ':')} WIB`;
+    }
+    if (dateEl) {
+      dateEl.textContent = dateFormatter.format(now);
+    }
+  }
+
+  updateWibClock();
+  setInterval(updateWibClock, 1000);
+</script>

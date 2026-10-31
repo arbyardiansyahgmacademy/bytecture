@@ -1,0 +1,47 @@
+---
+import type { GalleryItem } from '../../data/gallery';
+
+interface Props {
+  item: GalleryItem;
+  index: number;
+}
+
+const { item, index } = Astro.props;
+---
+
+<div
+  class="gallery-card js-lightbox-trigger"
+  data-index={index}
+  data-src={item.image}
+  data-title={item.title}
+  data-category={item.category}
+  data-location={item.locationNote}
+  data-desc={item.description}
+  data-area={item.specs.area}
+  data-floors={item.specs.floors}
+  data-style={item.specs.style}
+  tabindex="0"
+  role="button"
+  aria-label={`Lihat detail ${item.title}`}
+>
+  <img
+    src={item.image}
+    alt={item.alt}
+    loading="lazy"
+    width="1000"
+    height="750"
+  />
+
+  <span class="badge-pill badge-glass gallery-card-badge">
+    {item.category}
+  </span>
+
+  <div class="gallery-card-overlay">
+    <h3 class="gallery-card-title">{item.title}</h3>
+    <div class="gallery-card-location">{item.locationNote}</div>
+    <div class="gallery-card-specs">
+      <span>{item.specs.area}</span> &bull; <span>{item.specs.floors}</span>
+    </div>
+  </div>
+</div>
+

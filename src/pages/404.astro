@@ -1,0 +1,56 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { siteConfig } from '../data/site';
+
+const title = 'Halaman Tidak Ditemukan (404) — Bytecture';
+const description = 'Maaf, halaman yang Anda cari tidak dapat ditemukan di situs Bytecture.';
+---
+
+<MainLayout
+  title={title}
+  description={description}
+  canonicalPath="/404"
+  breadcrumbs={[
+    { name: 'Beranda', url: '/' },
+    { name: '404 - Halaman Tidak Ditemukan' },
+  ]}
+  noindex={true}
+>
+  <section class="section-spacing" style="padding-top: 3rem; text-align: center;">
+    <div class="container" style="max-width: 680px;">
+      <div style="background: var(--color-bg-surface); border: 1px solid var(--color-border); border-radius: var(--radius-2xl); padding: clamp(2.5rem, 6vw, 4rem); box-shadow: var(--glass-shadow-sm);">
+        <span class="eyebrow eyebrow-accent" style="margin-bottom: 0.75rem; justify-content: center;">ERROR 404</span>
+        <h1 style="font-size: clamp(3rem, 7vw, 5rem); margin-bottom: 1rem; color: var(--color-text-primary); line-height: 1;">
+          404
+        </h1>
+        <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">Halaman Tidak Ditemukan</h2>
+        <p style="font-size: 1.05rem; line-height: 1.65; color: var(--color-text-secondary); margin-bottom: 2rem;">
+          Tautan yang Anda tuju mungkin telah berpindah alamat, dihapus, atau terjadi kesalahan ketik pada URL peramban Anda.
+        </p>
+
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="/" class="btn btn-primary" style="padding: 0.85rem 1.6rem;">
+            <span>Kembali ke Beranda</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+          <a href="/layanan/" class="btn btn-secondary" style="padding: 0.85rem 1.5rem;">
+            <span>Lihat Katalog Layanan</span>
+          </a>
+          <a
+            href={siteConfig.whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-whatsapp"
+            style="padding: 0.85rem 1.5rem;"
+          >
+            <span>Bantuan WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+

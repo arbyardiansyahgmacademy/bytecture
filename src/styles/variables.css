@@ -1,0 +1,67 @@
+:root {
+  /* Color Palette - Architectural Warm Luxury */
+  --color-bg-main: #f5f4f0;
+  --color-bg-canvas: #faf9f6;
+  --color-bg-surface: #ffffff;
+  --color-bg-surface-elevated: #ffffff;
+  
+  /* Frosted Glassmorphism Tokens */
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-bg-subtle: rgba(255, 255, 255, 0.7);
+  --glass-bg-hover: rgba(255, 255, 255, 0.95);
+  --glass-border: rgba(255, 255, 255, 0.85);
+  --glass-border-subtle: rgba(255, 255, 255, 0.5);
+  --glass-shadow: 0 20px 50px rgba(18, 19, 22, 0.07);
+  --glass-shadow-sm: 0 8px 24px rgba(18, 19, 22, 0.05);
+  --glass-shadow-lg: 0 30px 70px rgba(18, 19, 22, 0.12);
+  --backdrop-blur: blur(20px);
+
+  /* Text & Foreground Colors */
+  --color-text-primary: #141517;
+  --color-text-secondary: #585c63;
+  --color-text-muted: #8c9098;
+  --color-text-light: #ffffff;
+  --color-text-on-dark: #f5f5f7;
+
+  /* Accent & Brand Colors */
+  --color-primary: #141517;
+  --color-primary-hover: #2a2c30;
+  --color-accent: #c89b6b;
+  --color-accent-light: #f5ece2;
+  --color-accent-dark: #9d7547;
+  --color-whatsapp: #25d366;
+  --color-whatsapp-hover: #1ebd5b;
+  --color-whatsapp-dark: #128c7e;
+
+  /* Border & Dividers */
+  --color-border: #e8e6e1;
+  --color-border-light: #f0eee9;
+  --color-border-dark: #2c2d30;
+
+  /* Radius Matching Uploaded Design */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-2xl: 40px;
+  --radius-pill: 9999px;
+
+  /* Typography */
+  --font-family-sans: -apple-system, BlinkMacSystemFont, 'Plus Jakarta Sans', 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-family-serif: 'Playfair Display', Georgia, Cambria, 'Times New Roman', serif;
+  
+  /* Layout Sizing */
+  --sidebar-width: 280px;
+  --sidebar-collapsed-width: 88px;
+  --header-height-mobile: 68px;
+  --bottom-nav-height: 72px;
+  --max-content-width: 1400px;
+  --content-padding: clamp(1.25rem, 3vw, 2.5rem);
+
+  /* Transitions */
+  --transition-fast: 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+

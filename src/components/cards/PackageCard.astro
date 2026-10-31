@@ -1,0 +1,52 @@
+---
+import type { PackageItem } from '../../data/packages';
+
+interface Props {
+  pkg: PackageItem;
+}
+
+const { pkg } = Astro.props;
+---
+
+<article class={`package-card ${pkg.isRecommended ? 'recommended' : ''}`}>
+  {pkg.badge && (
+    <span class={`badge-pill ${pkg.isRecommended ? 'badge-accent' : 'badge-glass'} package-top-badge`}>
+      {pkg.badge}
+    </span>
+  )}
+
+  <h3 class="package-title">{pkg.title}</h3>
+  <p class="package-desc">{pkg.shortDescription}</p>
+
+  <div class="package-price-wrap">
+    <div class="package-price">{pkg.priceDisplay}</div>
+    <div class="package-price-note">{pkg.priceNote}</div>
+  </div>
+
+  <div class="package-features-title">Ruang Lingkup Termasuk:</div>
+  <ul class="package-features">
+    {pkg.included.slice(0, 4).map((item) => (
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        <span>{item}</span>
+      </li>
+    ))}
+  </ul>
+
+  <div style="display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: auto; padding-top: 1.25rem; border-top: 1px solid var(--color-border-light);">
+    <a
+      href={`/paket/${pkg.slug}/`}
+      class={`btn ${pkg.isRecommended ? 'btn-primary' : 'btn-secondary'}`}
+      style="width: 100%;"
+    >
+      <span>Detail Paket</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="7" y1="17" x2="17" y2="7"></line>
+        <polyline points="7 7 17 7 17 17"></polyline>
+      </svg>
+    </a>
+  </div>
+</article>
+

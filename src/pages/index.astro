@@ -1,0 +1,895 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { siteConfig } from '../data/site';
+import { services } from '../data/services';
+import { packages } from '../data/packages';
+import { galleryItems } from '../data/gallery';
+import { articles } from '../data/articles';
+import { testimonials } from '../data/testimonials';
+import { generalFaqs } from '../data/faqs';
+
+import ServiceCard from '../components/cards/ServiceCard.astro';
+import PackageCard from '../components/cards/PackageCard.astro';
+import GalleryCard from '../components/cards/GalleryCard.astro';
+import BlogCard from '../components/cards/BlogCard.astro';
+import TestimonialCard from '../components/cards/TestimonialCard.astro';
+import SectionHeading from '../components/common/SectionHeading.astro';
+import CTASection from '../components/common/CTASection.astro';
+import FAQ from '../components/common/FAQ.astro';
+
+// SEO Title & Description (within optimal lengths)
+const title = 'Bytecture — Jasa Arsitek Online Indonesia & Desain Bangunan';
+const description = 'Layanan jasa arsitek profesional dan konsultasi desain bangunan secara online untuk seluruh Indonesia. Desain rumah, villa, komersial, dan renovasi modern.';
+
+// 3 Recommended Packages
+const recommendedPackages = packages.filter((p) => p.isRecommended).slice(0, 3);
+// 3 Featured Services
+const featuredServices = services.slice(0, 3);
+// 6 Gallery Items for preview
+const previewGallery = galleryItems.slice(0, 6);
+// 3 Featured Blog Articles
+const featuredArticles = articles.slice(0, 3);
+---
+
+<MainLayout
+  title={title}
+  description={description}
+  canonicalPath="/"
+  breadcrumbs={[{ name: 'Beranda' }]}
+>
+  <!-- =========================================================================
+       SECTION 1: HERO (REPLICATING THE LUXURY ARCHITECTURAL DESIGN REFERENCE)
+       ========================================================================= -->
+  <section class="hero-stage">
+    <!-- Outer Architectural Label Bar (Matching Reference Evora Design / Best Shots) -->
+    <div class="hero-stage-header">
+      <span class="hero-studio-mark">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <rect width="18" height="18" x="3" y="3" rx="2"></rect>
+          <path d="M3 9h18"></path>
+          <path d="M9 21V9"></path>
+        </svg>
+        <span>BYTECTURE ARCHITECTURE &bull; ONLINE INDONESIA</span>
+      </span>
+      <!-- Elegant Architectural Design Element replacing BEST SHOTS -->
+      <div class="hero-studio-badge" title="Studio Desain Arsitektur Modern Berlisensi Digital 2026">
+        <span class="badge-beacon" aria-hidden="true">
+          <span class="beacon-wave"></span>
+          <span class="beacon-core"></span>
+        </span>
+        <span class="badge-text">COMMISSION STATUS: <strong class="text-gold">OPEN 2026</strong></span>
+        <span class="badge-sep" aria-hidden="true">/</span>
+        <span class="badge-tag">IAI &bull; ARSITEK RESMI</span>
+      </div>
+    </div>
+
+    <div class="hero-frame-container">
+      <!-- Full-bleed Background Architectural Photography with Soft Ambient Gradient -->
+      <div class="hero-bg-wrapper">
+        <img
+          src="/images/hero/hero-bg.webp"
+          alt="Villa arsitektur modern minimalis tepi laut dengan kolam infinity dan pencahayaan senja"
+          class="hero-bg-img"
+          loading="eager"
+          fetchpriority="high"
+          width="1600"
+          height="1000"
+        />
+        <div class="hero-overlay-gradient"></div>
+      </div>
+
+      <!-- Top Floating Pill Navigation & Filters (Refined Luxury Frosted Capsules) -->
+      <div class="hero-top-pill-bar">
+        <div class="hero-pill-nav">
+          <a
+            href={siteConfig.whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="pill-nav-item active-action"
+            title="Mulai Konsultasi Online via WhatsApp Resmi"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <line x1="17" y1="17" x2="7" y2="7"></line>
+              <polyline points="7 17 7 7 17 7"></polyline>
+            </svg>
+            <span>Konsultasi Online</span>
+          </a>
+
+          <!-- Button 2: Lokasi Dropdown Popover -->
+          <div class="pill-dropdown-wrap">
+            <button
+              type="button"
+              class="pill-nav-item pill-nav-dropdown-trigger"
+              id="pill-trigger-lokasi"
+              aria-expanded="false"
+              aria-controls="dropdown-lokasi"
+              aria-haspopup="true"
+            >
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>Lokasi: <strong>Seluruh Indonesia</strong></span>
+              <svg class="dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+
+            <!-- Dropdown Popover Card for Lokasi -->
+            <div id="dropdown-lokasi" class="hero-pill-dropdown-menu" role="menu" aria-labelledby="pill-trigger-lokasi">
+              <div class="dropdown-header">
+                <div class="dropdown-header-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                  </svg>
+                  <span>Cakupan Layanan Daring</span>
+                </div>
+                <span class="dropdown-header-sub">100% Konsultasi Digital Seluruh Nusantara</span>
+              </div>
+
+              <div class="dropdown-region-grid">
+                <span class="region-chip">Jawa & Madura</span>
+                <span class="region-chip">Bali & Nusa Tenggara</span>
+                <span class="region-chip">Sumatera & Kepulauan</span>
+                <span class="region-chip">Kalimantan</span>
+                <span class="region-chip">Sulawesi</span>
+                <span class="region-chip">Maluku & Papua</span>
+              </div>
+
+              <p class="dropdown-note">
+                Pengiriman data koordinat lahan, foto lokasi, & konsultasi dilakukan daring via WhatsApp & Google Meet.
+              </p>
+
+              <a
+                href={siteConfig.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="dropdown-action-btn"
+              >
+                <span>Cek Daerah Proyek Anda via WhatsApp</span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 17 7 7 17 7"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Button 3: Kategori Dropdown Popover -->
+          <div class="pill-dropdown-wrap">
+            <button
+              type="button"
+              class="pill-nav-item pill-nav-dropdown-trigger"
+              id="pill-trigger-kategori"
+              aria-expanded="false"
+              aria-controls="dropdown-kategori"
+              aria-haspopup="true"
+            >
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <rect width="18" height="18" x="3" y="3" rx="2"></rect>
+                <path d="M3 9h18"></path>
+                <path d="M9 21V9"></path>
+              </svg>
+              <span>Kategori: <strong>Rumah & Villa</strong></span>
+              <svg class="dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+
+            <!-- Dropdown Popover Card for Kategori -->
+            <div id="dropdown-kategori" class="hero-pill-dropdown-menu dropdown-menu-wide" role="menu" aria-labelledby="pill-trigger-kategori">
+              <div class="dropdown-header">
+                <div class="dropdown-header-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                  </svg>
+                  <span>Pilih Tipologi Arsitektur</span>
+                </div>
+                <span class="dropdown-header-sub">Katalog Desain & Portofolio Nyata</span>
+              </div>
+
+              <div class="dropdown-items-list">
+                <a href="/layanan/desain-rumah/" class="dropdown-nav-row">
+                  <div class="dropdown-row-icon">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M3 10.5L12 3l9 7.5v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                      <path d="M9 21v-7a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v7"/>
+                    </svg>
+                  </div>
+                  <div class="dropdown-row-text">
+                    <strong>Rumah Tinggal Modern Tropis</strong>
+                    <span>Denah efisien, pencahayaan alami & sirkulasi udara</span>
+                  </div>
+                  <svg class="row-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+
+                <a href="/layanan/bangunan-komersial/" class="dropdown-nav-row">
+                  <div class="dropdown-row-icon">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M2 20h20"/>
+                      <path d="M5 20V8l7-5 7 5v12"/>
+                      <path d="M9 12h6"/>
+                      <path d="M12 9v6"/>
+                      <circle cx="12" cy="5" r="0.8" fill="currentColor"/>
+                    </svg>
+                  </div>
+                  <div class="dropdown-row-text">
+                    <strong>Villa & Resort Eksklusif</strong>
+                    <span>Konsep retreat, infinity pool, & bukaan pemandangan</span>
+                  </div>
+                  <svg class="row-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+
+                <a href="/layanan/bangunan-komersial/" class="dropdown-nav-row">
+                  <div class="dropdown-row-icon">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <rect x="4" y="2" width="16" height="20" rx="2"/>
+                      <line x1="9" y1="22" x2="9" y2="18"/>
+                      <line x1="15" y1="22" x2="15" y2="18"/>
+                      <line x1="9" y1="6" x2="15" y2="6"/>
+                      <line x1="9" y1="10" x2="15" y2="10"/>
+                      <line x1="9" y1="14" x2="15" y2="14"/>
+                    </svg>
+                  </div>
+                  <div class="dropdown-row-text">
+                    <strong>Ruko, Kafe & Komersial</strong>
+                    <span>Fasad berdaya tarik tinggi & efisiensi ruang usaha</span>
+                  </div>
+                  <svg class="row-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+
+                <a href="/layanan/desain-interior/" class="dropdown-nav-row">
+                  <div class="dropdown-row-icon">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M19 9V6a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v3"/>
+                      <path d="M3 11a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6H3v-6z"/>
+                      <path d="M5 17v4"/>
+                      <path d="M19 17v4"/>
+                    </svg>
+                  </div>
+                  <div class="dropdown-row-text">
+                    <strong>Desain Interior & Custom Furnitur</strong>
+                    <span>Visualisasi 3D realistis & pemilihan material elegan</span>
+                  </div>
+                  <svg class="row-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+
+                <a href="/layanan/renovasi-bangunan/" class="dropdown-nav-row">
+                  <div class="dropdown-row-icon">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="m14 7 3-3a2 2 0 0 1 2.8 0l.4.4a2 2 0 0 1 0 2.8L17 10"/>
+                      <path d="M2 22l10-10"/>
+                      <path d="M6 14l4 4"/>
+                      <circle cx="18" cy="18" r="3"/>
+                      <path d="m20.5 20.5 1.5 1.5"/>
+                    </svg>
+                  </div>
+                  <div class="dropdown-row-text">
+                    <strong>Renovasi & Redesain Fasad</strong>
+                    <span>Optimasi bangunan eksisting tanpa bongkar total</span>
+                  </div>
+                  <svg class="row-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+              </div>
+
+              <a href="/galeri/" class="dropdown-action-btn" style="margin-top: 0.6rem;">
+                <span>Eksplorasi Semua di Galeri Portofolio</span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Button 4: Tarif Dropdown Popover -->
+          <div class="pill-dropdown-wrap">
+            <button
+              type="button"
+              class="pill-nav-item pill-nav-dropdown-trigger"
+              id="pill-trigger-tarif"
+              aria-expanded="false"
+              aria-controls="dropdown-tarif"
+              aria-haspopup="true"
+            >
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <line x1="12" y1="1" x2="12" y2="23"></line>
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+              </svg>
+              <span>Tarif: <strong>Transparan & Bertahap</strong></span>
+              <svg class="dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+
+            <!-- Dropdown Popover Card for Tarif -->
+            <div id="dropdown-tarif" class="hero-pill-dropdown-menu" role="menu" aria-labelledby="pill-trigger-tarif">
+              <div class="dropdown-header">
+                <div class="dropdown-header-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+                    <line x1="2" y1="10" x2="22" y2="10"></line>
+                  </svg>
+                  <span>Sistem Termin 3 Tahap Aman</span>
+                </div>
+                <span class="dropdown-header-sub">Biaya Terukur Tanpa Biaya Tersembunyi</span>
+              </div>
+
+              <div class="dropdown-stages-list">
+                <div class="stage-step-item">
+                  <span class="step-num">01</span>
+                  <div class="step-desc">
+                    <strong>Fase 1 &bull; DP 30%</strong>
+                    <span>Analisis lahan & konsep denah 2D berdimensi</span>
+                  </div>
+                </div>
+
+                <div class="stage-step-item">
+                  <span class="step-num">02</span>
+                  <div class="step-desc">
+                    <strong>Fase 2 &bull; Termin 40%</strong>
+                    <span>Visualisasi 3D render fasad & pencahayaan</span>
+                  </div>
+                </div>
+
+                <div class="stage-step-item">
+                  <span class="step-num">03</span>
+                  <div class="step-desc">
+                    <strong>Fase 3 &bull; Pelunasan 30%</strong>
+                    <span>Bundel gambar kerja DED & teknis siap bangun</span>
+                  </div>
+                </div>
+              </div>
+
+              <a href="/paket/" class="dropdown-action-btn">
+                <span>Lihat Paket Desain Mulai Rp 15.000/m²</span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Center Hero Headline & Value Proposition -->
+      <div class="hero-body-content">
+        <span class="eyebrow eyebrow-hero-badge">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+          </svg>
+          <span>MORE THAN A HOME &bull; JASA ARSITEK ONLINE INDONESIA</span>
+        </span>
+
+        <h1 class="hero-title">
+          A Brighter<br />Way of Living
+        </h1>
+
+        <p class="hero-lead">
+          Desain arsitektur modern untuk hunian dan ruang usaha di seluruh pelosok Indonesia. Dirancang cermat untuk menghadirkan kenyamanan iklim tropis, ketenangan batin, dan fungsionalitas ruang yang bernilai jangka panjang.
+        </p>
+
+        <div class="hero-action-buttons">
+          <a
+            href={siteConfig.whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary"
+            style="padding: 0.85rem 1.8rem;"
+          >
+            <span>Konsultasi via WhatsApp</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+
+          <a href="/layanan/" class="btn btn-secondary" style="padding: 0.85rem 1.6rem;">
+            <span>Lihat Layanan Kami</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Bottom Floating Cards: Discover + Seacliff Property Card -->
+      <div class="hero-bottom-cards">
+        <!-- Floating Card 1: Discover / Portfolio Preview -->
+        <div class="hero-discover-card">
+          <div class="discover-text">
+            <span class="discover-tag">✦ KATALOG DESAIN</span>
+            <div class="discover-title">Inspirasi Hunian</div>
+            <p class="discover-desc">Eksplorasi konsep tata ruang modern tropis untuk iklim Indonesia.</p>
+            <a href="/galeri/" class="discover-btn-link">
+              <span>Jelajahi Galeri</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </a>
+          </div>
+          <div class="discover-thumb">
+            <img
+              src="/images/hero/thumb-preview.webp"
+              alt="Pratinjau konsep desain arsitektur rumah modern tropis"
+              width="90"
+              height="90"
+            />
+          </div>
+        </div>
+
+        <div></div>
+
+        <!-- Floating Card 2: Property Card (Matching Seacliff Villa from Uploaded Design) -->
+        <div class="hero-property-card">
+          <div class="prop-header">
+            <div>
+              <div class="prop-title">Villa Seacliff Modern</div>
+              <div class="prop-location">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <span>Konsep Desain — Tropis Modern</span>
+              </div>
+            </div>
+            <span style="color: var(--color-accent-dark);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+              </svg>
+            </span>
+          </div>
+
+          <p class="prop-desc">
+            Retreat minimalis dengan bukaan kaca panorama luas, sirkulasi silang alami, dan integrasi lanskap asri.
+          </p>
+
+          <div class="prop-specs">
+            <div class="spec-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M2 4v16"></path>
+                <path d="M2 8h18a2 2 0 0 1 2 2v10"></path>
+                <path d="M2 17h20"></path>
+                <path d="M6 8v9"></path>
+              </svg>
+              <span>4 Kamar</span>
+            </div>
+            <div class="spec-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 6h6"></path>
+                <path d="M10 10V5a2 2 0 0 1 2-2h0a2 2 0 0 1 2 2v5"></path>
+                <path d="M4 10h16a2 2 0 0 1 2 2v6a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4v-6a2 2 0 0 1 2-2Z"></path>
+              </svg>
+              <span>4 Mandi</span>
+            </div>
+            <div class="spec-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect width="18" height="18" x="3" y="3" rx="2"></rect>
+                <path d="m3 9 18 0"></path>
+                <path d="m9 21 0-12"></path>
+              </svg>
+              <span>480 m²</span>
+            </div>
+          </div>
+
+          <div class="prop-footer">
+            <div>
+              <span style="font-size: 0.75rem; color: var(--color-text-muted); display: block;">Mulai Paket Desain</span>
+              <div class="prop-price">Rp 35.000 / m²</div>
+            </div>
+
+            <a
+              href={`/paket/paket-basic/`}
+              class="btn-circle-arrow"
+              aria-label="Lihat Paket Desain Villa Seacliff"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION 2: RINGKASAN TENTANG KAMI
+       ========================================================================= -->
+  <section class="section-spacing">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center;">
+        <div style="background: var(--color-bg-surface); border: 1px solid var(--color-border); border-radius: var(--radius-2xl); padding: clamp(2rem, 5vw, 3.5rem); box-shadow: var(--glass-shadow-sm);">
+          <div style="display: grid; grid-template-columns: 1fr; gap: 2rem;">
+            <div>
+              <span class="eyebrow eyebrow-accent" style="margin-bottom: 0.75rem;">PROFIL & PENDEKATAN KAMI</span>
+              <h2 style="margin-bottom: 1.25rem;">Menghubungkan Gagasan Hunian dengan Realisasi Teknis yang Tepat</h2>
+              <p style="font-size: 1.05rem; line-height: 1.7; color: var(--color-text-secondary); margin-bottom: 1.5rem;">
+                Bytecture didirikan untuk mempermudah akses jasa arsitektur bagi masyarakat di seluruh wilayah Indonesia. Kami percaya bahwa setiap keluarga berhak atas hunian yang sehat, bermartabat, dan direncanakan dengan saksama tanpa terkendala jarak kota.
+              </p>
+              <p style="font-size: 0.98rem; line-height: 1.7; color: var(--color-text-secondary); margin-bottom: 2rem;">
+                Melalui alur kerja digital yang rapi, konsultasi online interaktif, dan gambar kerja standar konstruksi nasional, kami memastikan setiap meter lahan Anda dimaksimalkan tanpa ada ruang yang terbuang sia-sia.
+              </p>
+              <a href="/tentang-kami/" class="btn btn-secondary">
+                <span>Pelajari Pendekatan Kami</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION 3: MENGAPA MEMILIH KAMI (FAKTUAL & REALISTIS)
+       ========================================================================= -->
+  <section class="section-spacing" style="background: var(--color-bg-canvas);">
+    <div class="container">
+      <SectionHeading
+        eyebrow="NILAI & KOMITMEN LAYANAN"
+        title="Mengapa Calon Klien Mempercayakan Perencanaan Desain Kepada Kami"
+        description="Fokus utama kami adalah ketepatan fungsi, keterbukaan informasi, dan kemudahan kolaborasi daring yang nyaman bagi Anda."
+        centered={true}
+      />
+
+      <div class="cards-grid-4">
+        <!-- Pilar 1 -->
+        <div style="background: var(--color-bg-surface); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 1.75rem;">
+          <div style="width: 44px; height: 44px; border-radius: var(--radius-pill); background: var(--color-accent-light); color: var(--color-accent-dark); display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="m4.93 4.93 4.24 4.24"></path>
+              <path d="m14.83 9.17 4.24-4.24"></path>
+              <path d="m14.83 14.83 4.24 4.24"></path>
+              <path d="m9.17 14.83-4.24 4.24"></path>
+            </svg>
+          </div>
+          <h3 style="font-size: 1.15rem; margin-bottom: 0.6rem;">Konsultasi Online Fleksibel</h3>
+          <p style="font-size: 0.9rem; color: var(--color-text-secondary); line-height: 1.6;">
+            Diskusi tatap muka virtual via WhatsApp dan Google Meet memungkinkan proses review berlangsung fleksibel di sela kesibukan Anda.
+          </p>
+        </div>
+
+        <!-- Pilar 2 -->
+        <div style="background: var(--color-bg-surface); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 1.75rem;">
+          <div style="width: 44px; height: 44px; border-radius: var(--radius-pill); background: var(--color-accent-light); color: var(--color-accent-dark); display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+          </div>
+          <h3 style="font-size: 1.15rem; margin-bottom: 0.6rem;">Gambar Kerja Konstruksi Jelas</h3>
+          <p style="font-size: 0.9rem; color: var(--color-text-secondary); line-height: 1.6;">
+            Disertai notasi dimensi, spesifikasi material, dan jalur instalasi MEP standar yang siap dibaca oleh tukang maupun mandor lokal.
+          </p>
+        </div>
+
+        <!-- Pilar 3 -->
+        <div style="background: var(--color-bg-surface); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 1.75rem;">
+          <div style="width: 44px; height: 44px; border-radius: var(--radius-pill); background: var(--color-accent-light); color: var(--color-accent-dark); display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect width="18" height="18" x="3" y="3" rx="2"></rect>
+              <path d="M3 9h18"></path>
+              <path d="M9 21V9"></path>
+            </svg>
+          </div>
+          <h3 style="font-size: 1.15rem; margin-bottom: 0.6rem;">Transparansi Tahapan & Tarif</h3>
+          <p style="font-size: 0.9rem; color: var(--color-text-secondary); line-height: 1.6;">
+            Ruang lingkup pekerjaan, hak revisi, dan deliverables disepakati di awal tanpa ada biaya siluman di tengah proses berjalan.
+          </p>
+        </div>
+
+        <!-- Pilar 4 -->
+        <div style="background: var(--color-bg-surface); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 1.75rem;">
+          <div style="width: 44px; height: 44px; border-radius: var(--radius-pill); background: var(--color-accent-light); color: var(--color-accent-dark); display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+          </div>
+          <h3 style="font-size: 1.15rem; margin-bottom: 0.6rem;">Komunikasi Terarah via WhatsApp</h3>
+          <p style="font-size: 0.9rem; color: var(--color-text-secondary); line-height: 1.6;">
+            Saluran diskusi intensif tanpa birokrasi berbelit, memudahkan Anda berkonsultasi mengenai perubahan tata ruang dan ide desain.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION 4: 3 LAYANAN TERBAIK
+       ========================================================================= -->
+  <section class="section-spacing">
+    <div class="container">
+      <div style="display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <span class="eyebrow eyebrow-accent" style="margin-bottom: 0.5rem;">KATALOG LAYANAN UTAMA</span>
+          <h2>Layanan Arsitektur Unggulan</h2>
+        </div>
+        <a href="/layanan/" class="btn btn-secondary">
+          <span>Semua Layanan</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+
+      <div class="cards-grid-3">
+        {featuredServices.map((service) => (
+          <ServiceCard service={service} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION 5: GALERI PREVIEW & LIGHTBOX
+       ========================================================================= -->
+  <section class="section-spacing" style="background: var(--color-bg-canvas);">
+    <div class="container">
+      <div style="display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <span class="eyebrow eyebrow-accent" style="margin-bottom: 0.5rem;">PORTOFOLIO & KONSEP</span>
+          <h2>Eksplorasi Ruang & Fasad</h2>
+          <p style="font-size: 0.95rem; color: var(--color-text-muted); margin-top: 0.25rem;">Klik gambar untuk memperbesar pratinjau detail arsitektur.</p>
+        </div>
+        <a href="/galeri/" class="btn btn-secondary">
+          <span>Buka Galeri Lengkap</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+
+      <div class="cards-grid-3">
+        {previewGallery.map((item, index) => (
+          <GalleryCard item={item} index={index} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION 6: 3 PAKET REKOMENDASI
+       ========================================================================= -->
+  <section class="section-spacing">
+    <div class="container">
+      <SectionHeading
+        eyebrow="PILIHAN PAKET DESAIN"
+        title="Paket Perencanaan yang Terstruktur"
+        description="Pilih paket yang paling sesuai dengan tahapan dan kebutuhan proyek properti Anda."
+        centered={true}
+      />
+
+      <div class="cards-grid-3">
+        {recommendedPackages.map((pkg) => (
+          <PackageCard pkg={pkg} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION 7: 3 ARTIKEL BLOG EDUKASI
+       ========================================================================= -->
+  <section class="section-spacing" style="background: var(--color-bg-canvas);">
+    <div class="container">
+      <div style="display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <span class="eyebrow eyebrow-accent" style="margin-bottom: 0.5rem;">EDUKASI & WAWASAN ARSITEKTUR</span>
+          <h2>Artikel Terbaru Seputar Desain & Bangun</h2>
+        </div>
+        <a href="/blog/" class="btn btn-secondary">
+          <span>Semua Artikel</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+
+      <div class="cards-grid-3">
+        {featuredArticles.map((article) => (
+          <BlogCard article={article} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION 8: 3 CARD TESTIMONI / KOMITMEN KLIEN
+       ========================================================================= -->
+  <section class="section-spacing">
+    <div class="container">
+      <SectionHeading
+        eyebrow="PENGALAMAN & KEPERCAYAAN"
+        title="Pengalaman Kolaborasi Calon Pemilik Rumah"
+        description="Komitmen kami adalah mendengarkan setiap detail aspirasi Anda dan menyajikannya dalam dokumen desain yang presisi."
+        centered={true}
+      />
+
+      <div class="cards-grid-3">
+        {testimonials.map((t) => (
+          <TestimonialCard testimonial={t} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION 9: FAQ (5 PERTANYAAN WAJIB SESUAI PRD)
+       ========================================================================= -->
+  <FAQ items={generalFaqs} includeSchema={true} />
+
+  <!-- =========================================================================
+       SECTION 10: CTA KONSULTASI WHATSAPP
+       ========================================================================= -->
+  <CTASection />
+
+  <!-- Lightbox Modal Markup -->
+  <div id="gallery-lightbox" class="gallery-lightbox-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Pratinjau Foto Galeri">
+    <div class="lightbox-content-box">
+      <button id="lightbox-close" class="lightbox-close-btn" aria-label="Tutup Pratinjau">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <button id="lightbox-prev" class="lightbox-nav-btn lightbox-nav-prev" aria-label="Gambar Sebelumnya">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+
+      <button id="lightbox-next" class="lightbox-nav-btn lightbox-nav-next" aria-label="Gambar Selanjutnya">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+
+      <div class="lightbox-media">
+        <img id="lightbox-img" src="" alt="Pratinjau detail arsitektur" />
+      </div>
+
+      <div class="lightbox-info">
+        <div>
+          <h4 id="lightbox-title" style="font-size: 1.2rem; color: #ffffff; margin-bottom: 0.25rem;"></h4>
+          <p id="lightbox-desc" style="font-size: 0.88rem; color: #9da3af;"></p>
+        </div>
+        <div id="lightbox-specs" style="font-size: 0.82rem; color: #d1d5db; white-space: nowrap;"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const triggers = document.querySelectorAll('.js-lightbox-trigger');
+    const lightbox = document.getElementById('gallery-lightbox');
+    const lbImg = document.getElementById('lightbox-img') as HTMLImageElement | null;
+    const lbTitle = document.getElementById('lightbox-title');
+    const lbDesc = document.getElementById('lightbox-desc');
+    const lbSpecs = document.getElementById('lightbox-specs');
+    const closeBtn = document.getElementById('lightbox-close');
+    const prevBtn = document.getElementById('lightbox-prev');
+    const nextBtn = document.getElementById('lightbox-next');
+
+    let currentIndex = 0;
+    const itemsData: Array<{ src: string; title: string; desc: string; specs: string; alt: string }> = [];
+
+    triggers.forEach((trigger, idx) => {
+      const el = trigger as HTMLElement;
+      itemsData.push({
+        src: el.dataset.src || '',
+        title: el.dataset.title || '',
+        desc: el.dataset.desc || '',
+        specs: `${el.dataset.area || ''} • ${el.dataset.floors || ''} • ${el.dataset.style || ''}`,
+        alt: el.dataset.title || 'Foto galeri arsitektur',
+      });
+
+      const openThis = () => {
+        currentIndex = idx;
+        renderLightbox();
+        lightbox?.classList.add('active');
+        lightbox?.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      };
+
+      trigger.addEventListener('click', openThis);
+      trigger.addEventListener('keydown', (e: any) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openThis();
+        }
+      });
+    });
+
+    function renderLightbox() {
+      const data = itemsData[currentIndex];
+      if (!data) return;
+      if (lbImg) {
+        lbImg.src = data.src;
+        lbImg.alt = data.alt;
+      }
+      if (lbTitle) lbTitle.textContent = data.title;
+      if (lbDesc) lbDesc.textContent = data.desc;
+      if (lbSpecs) lbSpecs.textContent = data.specs;
+    }
+
+    function closeLightbox() {
+      lightbox?.classList.remove('active');
+      lightbox?.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    function showPrev() {
+      currentIndex = (currentIndex - 1 + itemsData.length) % itemsData.length;
+      renderLightbox();
+    }
+
+    function showNext() {
+      currentIndex = (currentIndex + 1) % itemsData.length;
+      renderLightbox();
+    }
+
+    closeBtn?.addEventListener('click', closeLightbox);
+    prevBtn?.addEventListener('click', (e) => { e.stopPropagation(); showPrev(); });
+    nextBtn?.addEventListener('click', (e) => { e.stopPropagation(); showNext(); });
+
+    lightbox?.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (!lightbox?.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') showPrev();
+      if (e.key === 'ArrowRight') showNext();
+    });
+
+    // =========================================================================
+    // Hero Top Pill Dropdown Popovers Controller
+    // =========================================================================
+    const pillTriggers = document.querySelectorAll<HTMLButtonElement>('.pill-nav-dropdown-trigger');
+    const dropdownMenus = document.querySelectorAll<HTMLElement>('.hero-pill-dropdown-menu');
+
+    function closeAllHeroDropdowns() {
+      pillTriggers.forEach((btn) => btn.setAttribute('aria-expanded', 'false'));
+      dropdownMenus.forEach((menu) => menu.classList.remove('is-open'));
+    }
+
+    pillTriggers.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const targetId = btn.getAttribute('aria-controls');
+        const targetMenu = targetId ? document.getElementById(targetId) : null;
+        const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+
+        closeAllHeroDropdowns();
+
+        if (!isExpanded && targetMenu) {
+          btn.setAttribute('aria-expanded', 'true');
+          targetMenu.classList.add('is-open');
+        }
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!(e.target as HTMLElement)?.closest('.pill-dropdown-wrap')) {
+        closeAllHeroDropdowns();
+      }
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeAllHeroDropdowns();
+      }
+    });
+  </script>
+</MainLayout>
+
