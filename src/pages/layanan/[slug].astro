@@ -107,7 +107,7 @@ const serviceSchema = {
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
             </a>
-            <a href="/paket/" class="btn btn-secondary" style="padding: 0.85rem 1.6rem;">
+            <a href="/paket/" target="_self" class="btn btn-secondary" style="padding: 0.85rem 1.6rem;">
               <span>Lihat Pilihan Paket & Tarif</span>
             </a>
           </div>
@@ -349,7 +349,7 @@ const serviceSchema = {
           <span class="eyebrow eyebrow-accent" style="margin-bottom: 0.5rem;">EKSPLORASI ARSITEKTUR</span>
           <h2 style="font-size: 1.6rem; margin: 0;">Layanan Terkait Lainnya</h2>
         </div>
-        <a href="/layanan/" class="btn btn-secondary" style="font-size: 0.86rem; padding: 0.55rem 1.2rem;">
+        <a href="/layanan/" target="_self" class="btn btn-secondary" style="font-size: 0.86rem; padding: 0.55rem 1.2rem;">
           <span>Lihat Semua Layanan</span>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
         </a>
@@ -365,7 +365,7 @@ const serviceSchema = {
                 {s.shortDescription}
               </p>
             </div>
-            <a href={`/layanan/${s.slug}/`} class="btn btn-secondary" style="width: 100%;">
+            <a href={`/layanan/${s.slug}/`} target="_self" class="btn btn-secondary" style="width: 100%;">
               <span>Pelajari {s.title}</span>
             </a>
           </div>

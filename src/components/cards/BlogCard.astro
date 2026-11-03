@@ -17,7 +17,7 @@ const formattedDate = new Date(article.publishDate).toLocaleDateString('id-ID', 
 
 <article class="blog-card">
   <div class="blog-card-media">
-    <a href={`/blog/${article.slug}/`} class="blog-card-media-link" aria-label={`Baca artikel: ${article.title}`}>
+    <a href={`/blog/${article.slug}/`} target="_self" class="blog-card-media-link" aria-label={`Baca artikel: ${article.title}`}>
       <img
         src={article.image}
         alt={article.alt}
@@ -51,7 +51,7 @@ const formattedDate = new Date(article.publishDate).toLocaleDateString('id-ID', 
     </div>
 
     <h3 class="blog-card-title">
-      <a href={`/blog/${article.slug}/`}>{article.title}</a>
+      <a href={`/blog/${article.slug}/`} target="_self">{article.title}</a>
     </h3>
 
     <p class="blog-card-excerpt">{article.excerpt}</p>
@@ -80,7 +80,7 @@ const formattedDate = new Date(article.publishDate).toLocaleDateString('id-ID', 
         </div>
       </div>
 
-      <a href={`/blog/${article.slug}/`} class="blog-card-action-btn" aria-label={`Baca selengkapnya artikel ${article.title}`}>
+      <a href={`/blog/${article.slug}/`} target="_self" class="blog-card-action-btn" aria-label={`Baca selengkapnya artikel ${article.title}`}>
         <span>Baca Panduan</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
           <line x1="7" y1="17" x2="17" y2="7"></line>

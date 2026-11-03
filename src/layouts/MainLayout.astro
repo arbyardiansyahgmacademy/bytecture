@@ -91,6 +91,9 @@ const webSiteSchema = {
     <link rel="apple-touch-icon" href="/images/logo/logo-bytecture.webp" />
     <link rel="manifest" href="/site.webmanifest" />
 
+    <!-- Default Target Setting: Pastikan semua link internal tetap di satu tab yang sama -->
+    <base target="_self" />
+
     <!-- SEO Meta Tags -->
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -152,6 +155,39 @@ const webSiteSchema = {
         <WhatsAppFloat />
       </div>
     </div>
+    <!-- Script Proteksi Navigasi: Pastikan perpindahan antar halaman selalu di satu tab yang sama -->
+    <script>
+      (function ensureSameTabNavigation() {
+        document.addEventListener(
+          'click',
+          (event) => {
+            const anchor = (event.target as HTMLElement)?.closest('a');
+            if (!anchor) return;
+
+            const href = anchor.getAttribute('href');
+            if (!href || href.startsWith('#') || href.startsWith('javascript:')) return;
+
+            // Jangan sentuh tautan eksternal khusus seperti WhatsApp, peta, atau medsos
+            const isExternalProtocol =
+              href.startsWith('http://') ||
+              href.startsWith('https://') ||
+              href.startsWith('//') ||
+              href.startsWith('mailto:') ||
+              href.startsWith('tel:');
+
+            const isCurrentDomain =
+              href.startsWith(window.location.origin) ||
+              href.includes('jasaarsitek.biz.id');
+
+            // Jika tautan internal (relatif seperti /layanan/ atau mengarah ke domain sendiri)
+            if (!isExternalProtocol || isCurrentDomain) {
+              anchor.target = '_self';
+            }
+          },
+          { capture: true }
+        );
+      })();
+    </script>
   </body>
 </html>
 

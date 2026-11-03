@@ -99,13 +99,13 @@ const currentYear = new Date().getFullYear();
           <span class="col-title-line" aria-hidden="true"></span>
         </h4>
         <ul class="footer-links">
-          <li><a href="/"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> <span>Beranda</span></a></li>
-          <li><a href="/tentang-kami/"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> <span>Tentang Kami</span></a></li>
-          <li><a href="/layanan/"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> <span>Katalog Layanan</span></a></li>
-          <li><a href="/paket/"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> <span>Pilihan Paket</span></a></li>
-          <li><a href="/galeri/"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> <span>Galeri Desain</span></a></li>
-          <li><a href="/blog/"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> <span>Artikel Edukasi</span></a></li>
-          <li><a href="/kontak/"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> <span>Kontak & Konsultasi</span></a></li>
+          <li><a href="/" target="_self"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> <span>Beranda</span></a></li>
+          <li><a href="/tentang-kami/" target="_self"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> <span>Tentang Kami</span></a></li>
+          <li><a href="/layanan/" target="_self"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> <span>Katalog Layanan</span></a></li>
+          <li><a href="/paket/" target="_self"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> <span>Pilihan Paket</span></a></li>
+          <li><a href="/galeri/" target="_self"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> <span>Galeri Desain</span></a></li>
+          <li><a href="/blog/" target="_self"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> <span>Artikel Edukasi</span></a></li>
+          <li><a href="/kontak/" target="_self"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> <span>Kontak & Konsultasi</span></a></li>
         </ul>
       </div>
 
@@ -117,10 +117,10 @@ const currentYear = new Date().getFullYear();
         </h4>
         <ul class="footer-links">
           {services.map((s) => (
-            <li><a href={`/layanan/${s.slug}/`}><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> <span>{s.title}</span></a></li>
+            <li><a href={`/layanan/${s.slug}/`} target="_self"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> <span>{s.title}</span></a></li>
           ))}
           {packages.slice(0, 2).map((p) => (
-            <li><a href={`/paket/${p.slug}/`}><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> <span>{p.title}</span></a></li>
+            <li><a href={`/paket/${p.slug}/`} target="_self"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> <span>{p.title}</span></a></li>
           ))}
         </ul>
       </div>
@@ -181,9 +181,9 @@ const currentYear = new Date().getFullYear();
     <div class="container footer-bottom-inner">
       <p>&copy; {currentYear} <strong>Jasa Arsitek</strong>. Hak Cipta Dilindungi Undang-Undang. Studio Jasa Arsitek Online Indonesia.</p>
       <div class="footer-bottom-links">
-        <a href="/kebijakan-privasi/">Kebijakan Privasi</a>
+        <a href="/kebijakan-privasi/" target="_self">Kebijakan Privasi</a>
         <span class="sep-dot">&bull;</span>
-        <a href="/kontak/">Kontak Kami</a>
+        <a href="/kontak/" target="_self">Kontak Kami</a>
       </div>
     </div>
   </div>

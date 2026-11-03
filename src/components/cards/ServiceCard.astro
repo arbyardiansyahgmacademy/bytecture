@@ -40,10 +40,10 @@ const { service } = Astro.props;
     </ul>
 
     <div class="service-card-footer">
-      <a href={`/layanan/${service.slug}/`} class="btn-link" style="display: inline-flex; align-items: center; gap: 0.5rem; font-weight: 600; font-size: 0.92rem; color: var(--color-text-primary);">
+      <a href={`/layanan/${service.slug}/`} target="_self" class="btn-link" style="display: inline-flex; align-items: center; gap: 0.5rem; font-weight: 600; font-size: 0.92rem; color: var(--color-text-primary);">
         <span>Detail Layanan</span>
       </a>
-      <a href={`/layanan/${service.slug}/`} class="btn-circle-arrow" aria-label={`Detail Layanan ${service.title}`}>
+      <a href={`/layanan/${service.slug}/`} target="_self" class="btn-circle-arrow" aria-label={`Detail Layanan ${service.title}`}>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
           <line x1="7" y1="17" x2="17" y2="7"></line>
           <polyline points="7 7 17 7 17 17"></polyline>

@@ -25,7 +25,7 @@ const isActive = (path: string) => {
 ---
 
 <header class="mobile-header">
-  <a href="/" class="mobile-brand" title="Jasa Arsitek — Beranda">
+  <a href="/" target="_self" class="mobile-brand" title="Jasa Arsitek — Beranda">
     <div class="brand-logo-wrap mobile">
       <img
         src="/images/logo/logo-bytecture.webp"
@@ -87,6 +87,7 @@ const isActive = (path: string) => {
       {allNavItems.map((item) => (
         <a
           href={item.path}
+          target="_self"
           class={`drawer-link ${isActive(item.path) ? 'active' : ''}`}
         >
           {item.name}

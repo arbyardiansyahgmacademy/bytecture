@@ -397,9 +397,9 @@ const structuredData = {
                   <img src={rel.image} alt={rel.title} loading="lazy" width="80" height="80" />
                 </div>
                 <div class="content">
-                  <h4><a href={`/blog/${rel.slug}/`}>{rel.title}</a></h4>
+                  <h4><a href={`/blog/${rel.slug}/`} target="_self">{rel.title}</a></h4>
                   <p>{rel.excerpt.slice(0, 80)}...</p>
-                  <a href={`/blog/${rel.slug}/`} class="readmore">Baca Selengkapnya &rarr;</a>
+                  <a href={`/blog/${rel.slug}/`} target="_self" class="readmore">Baca Selengkapnya &rarr;</a>
                 </div>
               </div>
             ))}
@@ -432,7 +432,7 @@ const structuredData = {
               <span class="news-widget-tag">3D PORTOFOLIO</span>
             </div>
 
-            <a href="/galeri/" style="text-decoration:none; display:block;">
+            <a href="/galeri/" target="_self" style="text-decoration:none; display:block;">
               <div class="news-widget-video-wrap">
                 <img
                   src="/images/gallery/villa-cliff.webp"
@@ -501,12 +501,12 @@ const structuredData = {
             </div>
             <div class="body">
               <span class="prod-cat-label">{pkg.badge || 'Paket Pilihan'}</span>
-              <h4><a href={`/paket/${pkg.slug}/`}>{pkg.title}</a></h4>
+              <h4><a href={`/paket/${pkg.slug}/`} target="_self">{pkg.title}</a></h4>
               <p>{pkg.shortDescription}</p>
               <div class="rec-price-row">
                 <strong>{pkg.priceDisplay}</strong>
               </div>
-              <a href={`/paket/${pkg.slug}/`} class="prod-card-link-auto">Lihat Detail Paket &rarr;</a>
+              <a href={`/paket/${pkg.slug}/`} target="_self" class="prod-card-link-auto">Lihat Detail Paket &rarr;</a>
             </div>
           </div>
         ))}

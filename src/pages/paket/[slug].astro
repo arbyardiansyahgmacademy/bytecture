@@ -92,7 +92,7 @@ const waContextMessage = `Halo Jasa Arsitek, saya tertarik dengan ${pkg.title} (
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
             </a>
-            <a href="/layanan/" class="btn btn-secondary" style="padding: 0.85rem 1.6rem;">
+            <a href="/layanan/" target="_self" class="btn btn-secondary" style="padding: 0.85rem 1.6rem;">
               <span>Lihat Detail Layanan</span>
             </a>
           </div>
@@ -310,7 +310,7 @@ const waContextMessage = `Halo Jasa Arsitek, saya tertarik dengan ${pkg.title} (
           <span class="eyebrow eyebrow-accent" style="margin-bottom: 0.5rem;">OPSI LAIN</span>
           <h2 style="font-size: 1.6rem; margin: 0;">Pilihan Paket Lainnya</h2>
         </div>
-        <a href="/paket/" class="btn btn-secondary" style="font-size: 0.86rem; padding: 0.55rem 1.2rem;">
+        <a href="/paket/" target="_self" class="btn btn-secondary" style="font-size: 0.86rem; padding: 0.55rem 1.2rem;">
           <span>Bandingkan Semua Paket</span>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
         </a>
@@ -329,7 +329,7 @@ const waContextMessage = `Halo Jasa Arsitek, saya tertarik dengan ${pkg.title} (
                 {p.shortDescription}
               </p>
             </div>
-            <a href={`/paket/${p.slug}/`} class="btn btn-secondary" style="width: 100%;">
+            <a href={`/paket/${p.slug}/`} target="_self" class="btn btn-secondary" style="width: 100%;">
               <span>Pelajari {p.title}</span>
             </a>
           </div>

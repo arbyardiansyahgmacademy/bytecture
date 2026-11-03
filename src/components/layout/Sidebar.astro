@@ -56,7 +56,7 @@ const navItems = [
 <aside class="desktop-sidebar" aria-label="Navigasi Utama Jasa Arsitek">
   <div class="sidebar-glass-inner">
     <!-- Brand / Logo -->
-    <a href="/" class="sidebar-brand" title="Jasa Arsitek — Beranda">
+    <a href="/" target="_self" class="sidebar-brand" title="Jasa Arsitek — Beranda">
       <div class="brand-logo-wrap">
         <img
           src="/images/logo/logo-bytecture.webp"
@@ -79,6 +79,7 @@ const navItems = [
       {navItems.map((item) => (
         <a
           href={item.path}
+          target="_self"
           class={`nav-link ${isActive(item.path) ? 'active' : ''}`}
           aria-current={isActive(item.path) ? 'page' : undefined}
         >
