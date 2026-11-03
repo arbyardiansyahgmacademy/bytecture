@@ -19,45 +19,388 @@ const description = 'Mengenal Jasa Arsitek, studio perancangan arsitektur online
     { name: 'Tentang Kami' },
   ]}
 >
-  <!-- Hero Section -->
-  <section class="section-spacing" style="padding-top: 2rem;">
+  <!-- =======================================================================
+       1. HERO SECTION: SPLIT HEADLINE & ARCHITECTURAL VISUAL
+       ======================================================================= -->
+  <section class="about-hero-section">
     <div class="container">
-      <div style="max-width: 800px;">
-        <span class="eyebrow eyebrow-accent" style="margin-bottom: 0.75rem;">TENTANG JASA ARSITEK</span>
-        <h1 style="margin-bottom: 1.5rem;">Arsitektur yang Memuliakan Ruang, Cahaya, dan Kehidupan Keluarga</h1>
-        <p style="font-size: 1.15rem; line-height: 1.7; color: var(--color-text-secondary);">
-          Jasa Arsitek adalah studio perancangan arsitektur daring yang melayani konsultasi desain bangunan untuk seluruh wilayah Indonesia. Kami mendedikasikan keahlian desain untuk menciptakan hunian bernilai estetika tinggi, hemat energi, dan siap diwujudkan secara nyata.
-        </p>
-      </div>
-    </div>
-  </section>
+      <div class="about-hero-grid">
+        <!-- Hero Text Column -->
+        <div class="about-hero-text">
+          <div class="hero-badge-capsule">
+            <span class="pulse-beacon-dot" aria-hidden="true"></span>
+            <span class="badge-capsule-label">STUDIO ARSITEKTUR DIGITAL 2026</span>
+          </div>
 
-  <!-- Profil Perusahaan -->
-  <section class="section-spacing" style="background: var(--color-bg-canvas);">
-    <div class="container">
-      <div style="display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center;">
-        <div style="background: var(--color-bg-surface); border: 1px solid var(--color-border); border-radius: var(--radius-2xl); padding: clamp(2rem, 5vw, 3.5rem); box-shadow: var(--glass-shadow-sm);">
-          <div style="max-width: 840px;">
-            <span class="eyebrow eyebrow-accent" style="margin-bottom: 0.75rem;">SIAPA KAMI</span>
-            <h2 style="margin-bottom: 1.25rem;">Menghadirkan Solusi Arsitek Berkualitas Tanpa Batasan Wilayah</h2>
-            <p style="margin-bottom: 1.25rem;">
-              Banyak pemilik lahan di berbagai pelosok Indonesia mendambakan rumah dengan tata letak optimal dan fasad modern, namun kesulitan menemukan tenaga arsitek perencana di kota mereka. Jasa Arsitek hadir menjembatani kebutuhan tersebut melalui pendekatan konsultasi digital yang terstruktur, transparan, dan komunikatif.
-            </p>
-            <p style="margin-bottom: 1.25rem;">
-              Kami memadukan pemahaman iklim tropis Indonesia—seperti intensitas curah hujan tinggi, radiasi panas matahari, dan arah hembusan angin—ke dalam gubahan massa arsitektur yang fungsional. Setiap ruang dirancang agar memiliki pencahayaan alami yang cukup di siang hari dan ventilasi silang yang menyejukkan.
-            </p>
-            <!-- TODO: KONFIRMASI PEMILIK JASA ARSITEK - Profil arsitek prinsipal, sertifikasi IAI/SKA, atau tahun pendirian resmi -->
-            <p style="font-size: 0.88rem; color: var(--color-text-muted); font-style: italic;">
-              Catatan: Layanan kami mencakup konsultasi konsep, perancangan denah 2D, visualisasi 3D fasad, serta penyusunan gambar kerja arsitektur digital.
-            </p>
+          <h1 class="about-hero-title">
+            Arsitektur yang Memuliakan Ruang, Cahaya, dan Kehidupan Keluarga
+          </h1>
+
+          <p class="about-hero-lead">
+            Jasa Arsitek adalah studio perancangan arsitektur daring yang melayani konsultasi desain bangunan untuk seluruh wilayah Indonesia. Kami mendedikasikan keahlian desain untuk menciptakan hunian bernilai estetika tinggi, hemat energi, dan siap diwujudkan secara nyata.
+          </p>
+
+          <div class="hero-pills-row">
+            <div class="hero-pill-feature">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="m9 12 2 2 4-4"></path>
+              </svg>
+              <span>100% Konsultasi Digital</span>
+            </div>
+            <div class="hero-pill-feature">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+                <path d="M3 9h18"></path>
+                <path d="M9 21V9"></path>
+              </svg>
+              <span>Standar Teknis IAI & IMB/PBG</span>
+            </div>
+            <div class="hero-pill-feature">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>Melayani Seluruh Indonesia</span>
+            </div>
+          </div>
+
+          <div class="hero-action-row">
+            <a
+              href={siteConfig.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-primary"
+            >
+              <span>Mulai Konsultasi Online</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </a>
+            <a href="/galeri/" class="btn btn-outline">
+              <span>Eksplorasi Galeri Desain</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Hero Visual Showcase -->
+        <div class="about-hero-visual">
+          <div class="hero-image-frame">
+            <img
+              src="/images/gallery/tropical-courtyard.webp"
+              alt="Konsep desain arsitektur tropis modern dengan courtyard dan pencahayaan alami oleh Jasa Arsitek"
+              class="hero-main-photo"
+              loading="eager"
+              width="800"
+              height="530"
+            />
+            <div class="hero-image-overlay"></div>
+
+            <!-- Floating Stamp Badge -->
+            <div class="floating-badge-top">
+              <div class="badge-icon-circ">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                </svg>
+              </div>
+              <div class="badge-text-meta">
+                <strong>Modern Tropis</strong>
+                <span>Hemat Energi & Sehat</span>
+              </div>
+            </div>
+
+            <!-- Floating Stat Card Bottom -->
+            <div class="floating-card-bottom">
+              <div class="stat-num">500+</div>
+              <div class="stat-label">
+                <strong>Konsultasi & Konsep Desain</strong>
+                <span>Klien di Berbagai Provinsi Indonesia</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Mengapa Memilih Kami & Keunggulan -->
-  <section class="section-spacing">
+  <!-- =======================================================================
+       2. PROFIL PERUSAHAAN & FILOSOFI DESAIN (ASYMMETRIC COMPOSITION)
+       ======================================================================= -->
+  <section class="section-spacing about-story-section">
+    <div class="container">
+      <div class="about-story-grid">
+        <!-- Dual Image Showcase -->
+        <div class="story-visual-col">
+          <div class="dual-images-wrap">
+            <div class="img-card-primary">
+              <img
+                src="/images/blog/support-3d-render.webp"
+                alt="Visualisasi render 3D fasad arsitektur realistis"
+                loading="lazy"
+                width="600"
+                height="400"
+              />
+              <span class="img-badge">Visualisasi 3D Fasad & Interior</span>
+            </div>
+
+            <div class="img-card-secondary">
+              <img
+                src="/images/blog/support-denah-kerja.webp"
+                alt="Gambar kerja teknis DED arsitektur presisi siap bangun"
+                loading="lazy"
+                width="420"
+                height="300"
+              />
+              <span class="img-badge secondary">Gambar Kerja DED Lengkap</span>
+            </div>
+          </div>
+
+          <div class="story-callout-card">
+            <div class="callout-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+              </svg>
+            </div>
+            <div class="callout-text">
+              <strong>Efisiensi Anggaran (RAB)</strong>
+              <p>Desain disesuaikan bujet konstruksi tanpa pemborosan material di lapangan.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Narrative Text Content -->
+        <div class="story-content-col">
+          <span class="eyebrow eyebrow-accent">SIAPA KAMI & VISI DESAIN</span>
+          <h2 class="story-title">Menghadirkan Solusi Arsitek Berkualitas Tanpa Batasan Wilayah</h2>
+
+          <p class="story-desc">
+            Banyak pemilik lahan di berbagai pelosok Indonesia mendambakan rumah dengan tata letak optimal dan fasad modern, namun kesulitan menemukan tenaga arsitek perencana di kota mereka. <strong>Jasa Arsitek</strong> hadir menjembatani kebutuhan tersebut melalui pendekatan konsultasi digital yang terstruktur, transparan, dan komunikatif.
+          </p>
+
+          <p class="story-desc">
+            Kami memadukan pemahaman iklim tropis Indonesia—seperti intensitas curah hujan tinggi, radiasi panas matahari, dan arah hembusan angin—ke dalam gubahan massa arsitektur yang fungsional. Setiap ruang dirancang agar memiliki pencahayaan alami yang cukup di siang hari dan ventilasi silang yang menyejukkan.
+          </p>
+
+          <!-- Key Principles Highlights -->
+          <div class="principles-list">
+            <div class="principle-item">
+              <div class="principle-check">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+              <div class="principle-text">
+                <strong>Adaptasi Iklim Tropis Nyata</strong>
+                <span>Desain tritisan lebar, ventilasi silang, dan perlindungan tempias hujan yang efektif.</span>
+              </div>
+            </div>
+
+            <div class="principle-item">
+              <div class="principle-check">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+              <div class="principle-text">
+                <strong>Gambar Kerja Presisi Siap Bangun</strong>
+                <span>Notasi ukuran akurat, detail sambungan, dan rencana MEP yang mudah dieksekusi kontraktor lokal.</span>
+              </div>
+            </div>
+
+            <div class="principle-item">
+              <div class="principle-check">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+              <div class="principle-text">
+                <strong>Konsultasi Digital Transparan & Bertahap</strong>
+                <span>Alur asistensi 3 termin aman via WhatsApp & Google Meet tanpa biaya tersembunyi.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =======================================================================
+       3. LEAD ARCHITECT & PRINCIPAL PROFILE (VERIFIED CREDENTIALS)
+       ======================================================================= -->
+  <section class="section-spacing architect-profile-section">
+    <div class="container">
+      <SectionHeading
+        eyebrow="TIM ARSITEK & PRINSIPAL"
+        title="Dibalik Setiap Garis Desain Jasa Arsitek"
+        description="Dikelola langsung oleh praktisi arsitektur berpengalaman untuk memastikan setiap rancangan memiliki kepastian struktur dan kelayakan bujet."
+        centered={true}
+      />
+
+      <div class="architect-card-wrapper">
+        <div class="architect-card">
+          <!-- Architect Avatar -->
+          <div class="architect-photo-frame">
+            <img
+              src="/images/author/author-artikel-arby-ardiansyah.webp"
+              alt="Arby Ardiansyah — Lead Architect Jasa Arsitek"
+              class="architect-photo"
+              loading="lazy"
+              width="180"
+              height="180"
+            />
+            <div class="photo-ring-glow"></div>
+            <span class="photo-verified-pill">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+              </svg>
+              <span>Lead Architect</span>
+            </span>
+          </div>
+
+          <!-- Architect Details -->
+          <div class="architect-details">
+            <div class="details-header">
+              <h3 class="architect-name">Arby Ardiansyah</h3>
+              <span class="architect-role">Founder & Principal Architectural Consultant</span>
+            </div>
+
+            <p class="architect-bio">
+              Praktisi perancangan arsitektur tropis modern yang berdedikasi membantu pemilik lahan di seluruh Nusantara mewujudkan hunian yang sehat, estetik, dan berstandar teknis konstruksi nyata. Menangani langsung alur asistensi konsep denah, visualisasi 3D, hingga finalisasi dokumen gambar kerja DED.
+            </p>
+
+            <div class="architect-expertise-tags">
+              <span class="exp-tag">Desain Rumah Tropis</span>
+              <span class="exp-tag">Villa & Resort</span>
+              <span class="exp-tag">Bangunan Komersial</span>
+              <span class="exp-tag">Gambar Kerja DED Lengkap</span>
+              <span class="exp-tag">Estimasi RAB Terukur</span>
+            </div>
+
+            <div class="architect-contact-action">
+              <a
+                href={`${siteConfig.whatsappUrl}?text=${encodeURIComponent('Halo Arsitek Arby Ardiansyah, saya ingin berkonsultasi mengenai rencana desain rumah saya.')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-architect-chat"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12.031 2C6.511 2 2.025 6.486 2.025 12.006c0 1.763.46 3.486 1.332 5.001L2 22.006l5.132-1.345c1.464.798 3.119 1.218 4.899 1.218h.004c5.518 0 10.005-4.486 10.005-10.006A9.948 9.948 0 0 0 12.031 2zm5.828 14.18c-.244.686-1.42 1.314-1.956 1.398-.517.08-1.19.114-1.923-.122-.444-.143-1.018-.334-1.761-.656-3.109-1.349-5.139-4.502-5.295-4.708-.155-.207-1.266-1.684-1.266-3.213 0-1.528.8-2.28 1.085-2.592.284-.312.62-.39.827-.39.207 0 .414.002.594.011.19.01.444-.072.695.53.259.62.88 2.148.958 2.304.078.156.129.338.026.545-.104.207-.155.338-.31.52-.156.182-.328.406-.468.545-.156.155-.319.324-.137.636.182.312.81 1.334 1.737 2.161 1.193 1.063 2.198 1.393 2.51 1.549.312.155.494.13.676-.078.182-.208.777-.908.984-1.22.207-.312.414-.26.695-.156.284.104 1.796.847 2.106 1.003.31.156.518.234.595.364.077.13.077.753-.167 1.439z"/>
+                </svg>
+                <span>Konsultasi Langsung dengan Arsitek Arby</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =======================================================================
+       4. SHOWCASE PORTOFOLIO STUDIO (VISUAL MOODBOARD GALLERY)
+       ======================================================================= -->
+  <section class="section-spacing showcase-strip-section">
+    <div class="container">
+      <SectionHeading
+        eyebrow="KARYA & EKSPLORASI RUANG"
+        title="Koleksi Tipologi Arsitektur yang Kami Rancang"
+        description="Dari hunian privat di perkotaan padat hingga villa peristirahatan di tepi alam terbuka."
+        centered={true}
+      />
+
+      <div class="showcase-strip-grid">
+        <!-- Card 1: Villa Cliff -->
+        <a href="/galeri/" class="showcase-strip-card">
+          <div class="showcase-thumb-box">
+            <img
+              src="/images/gallery/villa-cliff.webp"
+              alt="Desain villa modern minimalis tepi tebing oleh Jasa Arsitek"
+              loading="lazy"
+              width="450"
+              height="300"
+            />
+            <span class="showcase-cat-pill">Villa & Resort</span>
+          </div>
+          <div class="showcase-info-box">
+            <h4>Villa & Peristirahatan Tropis</h4>
+            <p>Bukaan kaca panoramik, infinity pool, dan integrasi lanskap alami.</p>
+          </div>
+        </a>
+
+        <!-- Card 2: Living Room -->
+        <a href="/galeri/" class="showcase-strip-card">
+          <div class="showcase-thumb-box">
+            <img
+              src="/images/gallery/living-room.webp"
+              alt="Desain ruang tamu modern tropis dengan pencahayaan alami oleh Jasa Arsitek"
+              loading="lazy"
+              width="450"
+              height="300"
+            />
+            <span class="showcase-cat-pill">Tata Ruang Interior</span>
+          </div>
+          <div class="showcase-info-box">
+            <h4>Ruang Keluarga & Sirkulasi</h4>
+            <p>Pencahayaan alami hangat, ventilasi silang, dan zoning ruang lega.</p>
+          </div>
+        </a>
+
+        <!-- Card 3: Facade Geometry -->
+        <a href="/galeri/" class="showcase-strip-card">
+          <div class="showcase-thumb-box">
+            <img
+              src="/images/gallery/facade-geometry.webp"
+              alt="Desain fasad geometri modern minimalis oleh Jasa Arsitek"
+              loading="lazy"
+              width="450"
+              height="300"
+            />
+            <span class="showcase-cat-pill">Fasad Modern</span>
+          </div>
+          <div class="showcase-info-box">
+            <h4>Fasad Geometri Presisi</h4>
+            <p>Karakter arsitektur tegas, kisi-kisi penahan tempias, dan material tahan cuaca.</p>
+          </div>
+        </a>
+
+        <!-- Card 4: Komersial Cafe -->
+        <a href="/galeri/" class="showcase-strip-card">
+          <div class="showcase-thumb-box">
+            <img
+              src="/images/services/bangunan-komersial.webp"
+              alt="Desain bangunan komersial kafe dan resto oleh Jasa Arsitek"
+              loading="lazy"
+              width="450"
+              height="300"
+            />
+            <span class="showcase-cat-pill">Bangunan Komersial</span>
+          </div>
+          <div class="showcase-info-box">
+            <h4>Ruang Usaha & Komersial</h4>
+            <p>Estetika magnetik, alur sirkulasi staf-tamu lancar, dan optimasi kapasitas.</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="showcase-footer-action">
+        <a href="/galeri/" class="btn btn-secondary">
+          <span>Lihat Semua Galeri Portofolio Lengkap</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =======================================================================
+       5. 4 NILAI UTAMA DALAM SETIAP KARYA
+       ======================================================================= -->
+  <section class="section-spacing values-section">
     <div class="container">
       <SectionHeading
         eyebrow="KEUNGGULAN PROSES & STANDAR KERJA"
@@ -67,30 +410,59 @@ const description = 'Mengenal Jasa Arsitek, studio perancangan arsitektur online
       />
 
       <div class="cards-grid-4">
-        <div style="background: var(--color-bg-surface); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 1.75rem;">
-          <h3 style="font-size: 1.2rem; margin-bottom: 0.6rem;">1. Terfokus pada Fungsi & Sirkulasi</h3>
-          <p style="font-size: 0.92rem; color: var(--color-text-secondary); line-height: 1.6;">
+        <!-- Value 1 -->
+        <div class="value-card">
+          <div class="value-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 10.5L12 3l9 7.5v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+          </div>
+          <h3 class="value-card-title">1. Terfokus pada Fungsi & Sirkulasi</h3>
+          <p class="value-card-desc">
             Ruangan indah tidak akan nyaman jika sirkulasinya macet atau gelap. Denah kami dirancang berdasarkan urutan aktivitas nyata keluarga Anda.
           </p>
         </div>
 
-        <div style="background: var(--color-bg-surface); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 1.75rem;">
-          <h3 style="font-size: 1.2rem; margin-bottom: 0.6rem;">2. Gambar Kerja Komprehensif</h3>
-          <p style="font-size: 0.92rem; color: var(--color-text-secondary); line-height: 1.6;">
+        <!-- Value 2 -->
+        <div class="value-card">
+          <div class="value-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+              <path d="M3 9h18"></path>
+              <path d="M9 21V9"></path>
+            </svg>
+          </div>
+          <h3 class="value-card-title">2. Gambar Kerja Komprehensif</h3>
+          <p class="value-card-desc">
             Setiap garis gambar kerja disertai notasi dimensi presisi, detail sambungan material, dan jalur elektrikal/sanitasi yang mudah dibaca kontraktor.
           </p>
         </div>
 
-        <div style="background: var(--color-bg-surface); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 1.75rem;">
-          <h3 style="font-size: 1.2rem; margin-bottom: 0.6rem;">3. Review Interaktif & Bertahap</h3>
-          <p style="font-size: 0.92rem; color: var(--color-text-secondary); line-height: 1.6;">
+        <!-- Value 3 -->
+        <div class="value-card">
+          <div class="value-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+          </div>
+          <h3 class="value-card-title">3. Review Interaktif & Bertahap</h3>
+          <p class="value-card-desc">
             Kami tidak langsung melompat ke tahap akhir. Evaluasi dilakukan bertahap mulai dari denah dasar, pemodelan 3D, hingga dokumen konstruksi.
           </p>
         </div>
 
-        <div style="background: var(--color-bg-surface); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 1.75rem;">
-          <h3 style="font-size: 1.2rem; margin-bottom: 0.6rem;">4. Komitmen Transparansi Tarif</h3>
-          <p style="font-size: 0.92rem; color: var(--color-text-secondary); line-height: 1.6;">
+        <!-- Value 4 -->
+        <div class="value-card">
+          <div class="value-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="12" y1="1" x2="12" y2="23"></line>
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+            </svg>
+          </div>
+          <h3 class="value-card-title">4. Komitmen Transparansi Tarif</h3>
+          <p class="value-card-desc">
             Penawaran biaya desain dihitung berdasarkan luas bangunan atau paket yang jelas, tanpa ada biaya tambahan tak terduga.
           </p>
         </div>
@@ -98,13 +470,718 @@ const description = 'Mengenal Jasa Arsitek, studio perancangan arsitektur online
     </div>
   </section>
 
-  <!-- FAQ 5 Pertanyaan -->
+  <!-- =======================================================================
+       6. FAQ & CTA
+       ======================================================================= -->
   <FAQ items={generalFaqs} />
 
-  <!-- CTA -->
   <CTASection
     title="Siap Mewujudkan Hunian Idaman Anda?"
-    description="Diskusikan kebutuhan tata ruang dan anggaran proyek Anda bersama tim tim Jasa Arsitek via WhatsApp."
+    description="Diskusikan kebutuhan tata ruang dan anggaran proyek Anda bersama tim Jasa Arsitek via WhatsApp resmi."
   />
 </MainLayout>
 
+<style>
+  /* ==========================================================================
+     HERO SECTION
+     ========================================================================== */
+  .about-hero-section {
+    padding: 2.5rem 0 3.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  @media (min-width: 1024px) {
+    .about-hero-grid {
+      grid-template-columns: 1.1fr 1fr;
+      gap: 3.5rem;
+    }
+  }
+
+  .hero-badge-capsule {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(200, 155, 107, 0.14);
+    border: 1px solid rgba(200, 155, 107, 0.35);
+    padding: 0.35rem 0.9rem;
+    border-radius: var(--radius-pill);
+    margin-bottom: 1.25rem;
+  }
+
+  .pulse-beacon-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #16a34a;
+    box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.6);
+    animation: beaconPulse 2s infinite ease-in-out;
+  }
+
+  @keyframes beaconPulse {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(22, 163, 74, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(22, 163, 74, 0); }
+  }
+
+  .badge-capsule-label {
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: var(--color-accent-dark);
+    text-transform: uppercase;
+  }
+
+  .about-hero-title {
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    line-height: 1.2;
+    margin-bottom: 1.25rem;
+    color: var(--color-text-primary);
+    font-family: var(--font-display, 'Playfair Display', serif);
+  }
+
+  .about-hero-lead {
+    font-size: 1.08rem;
+    line-height: 1.75;
+    color: var(--color-text-secondary);
+    margin-bottom: 1.75rem;
+  }
+
+  .hero-pills-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero-pill-feature {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    padding: 0.4rem 0.85rem;
+    border-radius: var(--radius-pill);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  }
+
+  .hero-pill-feature svg {
+    color: var(--color-accent-dark);
+  }
+
+  .hero-action-row {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    flex-wrap: wrap;
+  }
+
+  /* Hero Visual Image */
+  .about-hero-visual {
+    position: relative;
+  }
+
+  .hero-image-frame {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 48px rgba(20, 21, 23, 0.12);
+    border: 1.5px solid rgba(200, 155, 107, 0.35);
+    background: #141517;
+  }
+
+  .hero-main-photo {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+    transition: transform var(--transition-normal);
+  }
+
+  .hero-image-frame:hover .hero-main-photo {
+    transform: scale(1.03);
+  }
+
+  .hero-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(20, 21, 23, 0.15) 0%, rgba(20, 21, 23, 0.45) 100%);
+    pointer-events: none;
+  }
+
+  .floating-badge-top {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(200, 155, 107, 0.4);
+    padding: 0.5rem 0.85rem;
+    border-radius: var(--radius-pill);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  .badge-icon-circ {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .badge-text-meta {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+  }
+
+  .badge-text-meta strong {
+    font-size: 0.78rem;
+    color: var(--color-text-primary);
+  }
+
+  .badge-text-meta span {
+    font-size: 0.68rem;
+    color: var(--color-text-muted);
+  }
+
+  .floating-card-bottom {
+    position: absolute;
+    bottom: 1.25rem;
+    left: 1.25rem;
+    right: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    background: rgba(20, 21, 23, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 0.85rem 1.15rem;
+    border-radius: 16px;
+    color: #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  }
+
+  .floating-card-bottom .stat-num {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--color-accent);
+    letter-spacing: -0.02em;
+    font-family: var(--font-display, 'Playfair Display', serif);
+  }
+
+  .floating-card-bottom .stat-label {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.3;
+  }
+
+  .floating-card-bottom .stat-label strong {
+    font-size: 0.84rem;
+    color: #ffffff;
+  }
+
+  .floating-card-bottom .stat-label span {
+    font-size: 0.74rem;
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  /* ==========================================================================
+     PROFIL & FILOSOFI SECTION
+     ========================================================================== */
+  .about-story-section {
+    background: var(--color-bg-canvas);
+  }
+
+  .about-story-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  @media (min-width: 1024px) {
+    .about-story-grid {
+      grid-template-columns: 1fr 1.15fr;
+      gap: 4rem;
+    }
+  }
+
+  .dual-images-wrap {
+    position: relative;
+    padding-bottom: 2rem;
+  }
+
+  .img-card-primary {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 14px 35px rgba(20, 21, 23, 0.08);
+    background: #ffffff;
+  }
+
+  .img-card-primary img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .img-card-secondary {
+    position: absolute;
+    bottom: 0;
+    right: -1rem;
+    width: 65%;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 3px solid #ffffff;
+    box-shadow: 0 16px 38px rgba(20, 21, 23, 0.16);
+    background: #ffffff;
+  }
+
+  .img-card-secondary img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .img-badge {
+    position: absolute;
+    bottom: 0.75rem;
+    left: 0.75rem;
+    font-size: 0.68rem;
+    font-weight: 700;
+    background: rgba(20, 21, 23, 0.85);
+    color: #ffffff;
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-pill);
+    backdrop-filter: blur(8px);
+  }
+
+  .img-badge.secondary {
+    background: rgba(200, 155, 107, 0.95);
+    color: #141517;
+  }
+
+  .story-callout-card {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    background: #ffffff;
+    border: 1px solid rgba(200, 155, 107, 0.35);
+    border-radius: 16px;
+    padding: 1rem 1.25rem;
+    margin-top: 1.5rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+  }
+
+  .callout-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(200, 155, 107, 0.15);
+    color: var(--color-accent-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .callout-text strong {
+    font-size: 0.88rem;
+    color: var(--color-text-primary);
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+
+  .callout-text p {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin: 0 !important;
+    line-height: 1.4;
+  }
+
+  /* Story Narrative */
+  .story-title {
+    font-size: clamp(1.6rem, 3.2vw, 2.3rem);
+    line-height: 1.3;
+    margin-bottom: 1.25rem;
+    color: var(--color-text-primary);
+  }
+
+  .story-desc {
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    margin-bottom: 1.25rem;
+  }
+
+  .principles-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    margin-top: 1.75rem;
+  }
+
+  .principle-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    padding: 0.85rem 1.15rem;
+    border-radius: var(--radius-lg);
+  }
+
+  .principle-check {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #16a34a;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .principle-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .principle-text strong {
+    font-size: 0.88rem;
+    color: var(--color-text-primary);
+  }
+
+  .principle-text span {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    line-height: 1.45;
+  }
+
+  /* ==========================================================================
+     ARCHITECT PRINCIPAL PROFILE SECTION
+     ========================================================================== */
+  .architect-profile-section {
+    background: linear-gradient(180deg, #ffffff 0%, #fbf9f6 100%);
+  }
+
+  .architect-card-wrapper {
+    max-width: 900px;
+    margin: 2rem auto 0;
+  }
+
+  .architect-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: center;
+    background: #ffffff;
+    border: 1.5px solid rgba(200, 155, 107, 0.4);
+    border-radius: 24px;
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    box-shadow: 0 16px 40px rgba(20, 21, 23, 0.06);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .architect-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+  }
+
+  @media (min-width: 768px) {
+    .architect-card {
+      grid-template-columns: 200px 1fr;
+      gap: 2.5rem;
+    }
+  }
+
+  .architect-photo-frame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+
+  .architect-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--color-accent);
+    box-shadow: 0 10px 25px rgba(200, 155, 107, 0.3);
+  }
+
+  .photo-verified-pill {
+    margin-top: -12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: #141517;
+    color: #ffffff;
+    border: 1px solid var(--color-accent);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-pill);
+    font-size: 0.7rem;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .photo-verified-pill svg {
+    color: var(--color-accent);
+  }
+
+  .details-header {
+    margin-bottom: 0.85rem;
+  }
+
+  .architect-name {
+    font-size: 1.45rem;
+    color: var(--color-text-primary);
+    margin: 0 0 0.2rem 0;
+    font-family: var(--font-display, 'Playfair Display', serif);
+  }
+
+  .architect-role {
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--color-accent-dark);
+    text-transform: uppercase;
+  }
+
+  .architect-bio {
+    font-size: 0.94rem;
+    line-height: 1.65;
+    color: var(--color-text-secondary);
+    margin-bottom: 1.25rem;
+  }
+
+  .architect-expertise-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .exp-tag {
+    font-size: 0.74rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    background: rgba(20, 21, 23, 0.05);
+    border: 1px solid rgba(20, 21, 23, 0.08);
+    padding: 0.28rem 0.65rem;
+    border-radius: var(--radius-pill);
+  }
+
+  .btn-architect-chat {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: #141517;
+    color: #ffffff !important;
+    padding: 0.72rem 1.25rem;
+    border-radius: var(--radius-pill);
+    font-size: 0.86rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all var(--transition-fast);
+    box-shadow: 0 4px 14px rgba(20, 21, 23, 0.15);
+  }
+
+  .btn-architect-chat svg:first-child {
+    color: #25D366;
+  }
+
+  .btn-architect-chat:hover {
+    background: #25D366;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+  }
+
+  .btn-architect-chat:hover svg:first-child {
+    color: #ffffff;
+  }
+
+  /* ==========================================================================
+     SHOWCASE STRIP GALLERY SECTION
+     ========================================================================== */
+  .showcase-strip-section {
+    background: #ffffff;
+  }
+
+  .showcase-strip-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  @media (min-width: 640px) {
+    .showcase-strip-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .showcase-strip-grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+  }
+
+  .showcase-strip-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 18px;
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+    text-decoration: none;
+    color: inherit;
+    transition: all var(--transition-normal);
+  }
+
+  .showcase-strip-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(200, 155, 107, 0.6);
+    box-shadow: 0 16px 36px rgba(20, 21, 23, 0.1);
+  }
+
+  .showcase-thumb-box {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+  }
+
+  .showcase-thumb-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-normal);
+  }
+
+  .showcase-strip-card:hover .showcase-thumb-box img {
+    transform: scale(1.08);
+  }
+
+  .showcase-cat-pill {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    font-size: 0.68rem;
+    font-weight: 700;
+    background: rgba(20, 21, 23, 0.85);
+    color: #ffffff;
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-pill);
+    backdrop-filter: blur(8px);
+  }
+
+  .showcase-info-box {
+    padding: 1.15rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .showcase-info-box h4 {
+    font-size: 0.95rem;
+    margin: 0;
+    color: var(--color-text-primary);
+  }
+
+  .showcase-info-box p {
+    font-size: 0.78rem;
+    color: var(--color-text-muted);
+    margin: 0 !important;
+    line-height: 1.45;
+  }
+
+  .showcase-footer-action {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* ==========================================================================
+     4 VALUES CARDS
+     ========================================================================== */
+  .values-section {
+    background: var(--color-bg-canvas);
+  }
+
+  .value-card {
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: 1.75rem;
+    transition: all var(--transition-fast);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+  }
+
+  .value-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(200, 155, 107, 0.5);
+    box-shadow: 0 10px 28px rgba(20, 21, 23, 0.06);
+  }
+
+  .value-icon-wrap {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: rgba(200, 155, 107, 0.15);
+    color: var(--color-accent-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .value-card-title {
+    font-size: 1.15rem;
+    margin-bottom: 0.6rem;
+    color: var(--color-text-primary);
+  }
+
+  .value-card-desc {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin: 0 !important;
+  }
+</style>
