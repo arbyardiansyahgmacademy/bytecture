@@ -3,7 +3,7 @@ import { siteConfig } from '../../data/site';
 ---
 
 <div class="contact-form-card">
-  <form id="bytecture-contact-form" novalidate>
+  <form id="jasa-arsitek-contact-form" novalidate>
     <div class="form-grid">
       <div class="form-grid form-grid-2">
         <!-- Nama -->
@@ -85,7 +85,7 @@ import { siteConfig } from '../../data/site';
       <div class="form-group">
         <label class="form-checkbox-label">
           <input type="checkbox" id="contact-agree" name="agree" required />
-          <span>Saya bersedia dihubungi oleh arsitek Bytecture via WhatsApp untuk konsultasi dan estimasi penawaran desain.</span>
+          <span>Saya bersedia dihubungi oleh tim Jasa Arsitek via WhatsApp untuk konsultasi dan estimasi penawaran desain.</span>
         </label>
         <span class="form-error" id="agree-error" style="display: none; color: #ef4444; font-size: 0.8rem;">Anda perlu menyetujui opsi ini untuk melanjutkan.</span>
       </div>
@@ -97,7 +97,7 @@ import { siteConfig } from '../../data/site';
           <line x1="12" y1="16" x2="12" y2="12"></line>
           <line x1="12" y1="8" x2="12.01" y2="8"></line>
         </svg>
-        Data yang Anda masukkan tidak disimpan di database server kami. Menekan tombol di bawah akan membuka aplikasi WhatsApp resmi Bytecture (<strong>{siteConfig.phoneDisplay}</strong>) dengan teks yang telah tersusun otomatis.
+        Data yang Anda masukkan tidak disimpan di database server kami. Menekan tombol di bawah akan membuka aplikasi WhatsApp resmi Jasa Arsitek (<strong>{siteConfig.phoneDisplay}</strong>) dengan teks yang telah tersusun otomatis.
       </p>
 
       <button type="submit" class="btn btn-whatsapp" style="width: 100%; padding: 0.95rem; font-size: 1.05rem;">
@@ -111,7 +111,7 @@ import { siteConfig } from '../../data/site';
 </div>
 
 <script>
-  const form = document.getElementById('bytecture-contact-form') as HTMLFormElement | null;
+  const form = document.getElementById('jasa-arsitek-contact-form') as HTMLFormElement | null;
 
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -149,7 +149,7 @@ import { siteConfig } from '../../data/site';
 
     // Format WhatsApp message
     const formattedText = 
-`*KONSULTASI DESAIN ARSITEKTUR — BYTECTURE*
+`*KONSULTASI DESAIN ARSITEKTUR — JASA ARSITEK*
 ---------------------------------------
 *Nama:* ${nameInput.value.trim()}
 *No. WhatsApp:* ${waInput.value.trim()}
@@ -160,7 +160,7 @@ import { siteConfig } from '../../data/site';
 ${msgInput.value.trim()}
 
 ---------------------------------------
-_Dikirim melalui formulir kontak resmi bytecture.web.id_`;
+_Dikirim melalui formulir kontak resmi jasaarsitek.biz.id_`;
 
     const waUrl = `https://wa.me/6283115542771?text=${encodeURIComponent(formattedText)}`;
     window.open(waUrl, '_blank');

@@ -20,9 +20,9 @@ const { pkg } = Astro.props;
 // Other packages
 const otherPackages = packages.filter((p) => p.slug !== pkg.slug);
 
-const pageTitle = `${pkg.title} — Paket Arsitek Bytecture`;
+const pageTitle = `${pkg.title} — Paket Jasa Arsitek`;
 const pageDescription = pkg.shortDescription;
-const waContextMessage = `Halo Bytecture, saya tertarik dengan ${pkg.title} (${pkg.priceDisplay}) dan ingin mengetahui estimasi penawaran untuk lahan saya.`;
+const waContextMessage = `Halo Jasa Arsitek, saya tertarik dengan ${pkg.title} (${pkg.priceDisplay}) dan ingin mengetahui estimasi penawaran untuk lahan saya.`;
 ---
 
 <MainLayout
@@ -343,7 +343,7 @@ const waContextMessage = `Halo Bytecture, saya tertarik dengan ${pkg.title} (${p
        ========================================================================= -->
   <CTASection
     title={`Mulai Konsultasi ${pkg.title}`}
-    description="Sampaikan rencana proyek Anda kepada tim arsitek Bytecture untuk memperoleh estimasi waktu dan simulasi penawaran resmi."
+    description="Sampaikan rencana proyek Anda kepada tim tim Jasa Arsitek untuk memperoleh estimasi waktu dan simulasi penawaran resmi."
     customMessage={waContextMessage}
   />
 </MainLayout>

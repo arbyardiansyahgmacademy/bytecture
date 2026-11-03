@@ -7,12 +7,12 @@ export interface FAQItem {
 export const generalFaqs: FAQItem[] = [
   {
     id: "faq-1",
-    question: "Bagaimana alur kerja lengkap konsultasi arsitek online bersama Bytecture?",
+    question: "Bagaimana alur kerja lengkap konsultasi arsitek online bersama Jasa Arsitek?",
     answer: "Proses konsultasi berlangsung 100% praktis via WhatsApp dan Google Meet terstruktur dalam 4 tahap utama: (1) Diskusi awal kebutuhan ruang, preferensi gaya, serta pengiriman ukuran lahan dan foto lokasi; (2) Perumusan konsep denah 2D berdimensi dan sirkulasi ruang; (3) Pemodelan visualisasi 3D render eksterior/interior fotorealistik; dan (4) Penyusunan dokumen teknis Gambar Kerja Detail (DED) lengkap siap diserahkan langsung ke mandor atau kontraktor Anda.",
   },
   {
     id: "faq-2",
-    question: "Apakah Bytecture benar-benar melayani seluruh wilayah dan pelosok Indonesia?",
+    question: "Apakah Jasa Arsitek benar-benar melayani seluruh wilayah dan pelosok Indonesia?",
     answer: "Ya, kami melayani klien di seluruh provinsi Indonesia tanpa batasan jarak — mulai dari kota besar hingga pelosok di Jawa, Bali, Sumatera, Kalimantan, Sulawesi, Nusa Tenggara, Maluku, hingga Papua. Seluruh dokumen diserahkan dalam format digital master (PDF resolusi tinggi siap cetak A3/A4 dan gambar visual 3D WebP/JPG), didukung asistensi tanya-jawab selama masa persiapan pembangunan.",
   },
   {

@@ -19,24 +19,24 @@ export interface SiteConfig {
 }
 
 export const siteConfig: SiteConfig = {
-  name: "Bytecture",
+  name: "Jasa Arsitek",
   tagline: "Jasa Arsitek Online Seluruh Indonesia",
   description: "Layanan jasa arsitek profesional dan konsultasi desain bangunan secara online untuk seluruh wilayah Indonesia. Solusi desain rumah, bangunan komersial, interior, dan renovasi dengan pendekatan modern, fungsional, dan transparan.",
-  domain: "https://bytecture.web.id",
+  domain: "https://jasaarsitek.biz.id",
   phoneDisplay: "083115542771",
   phoneRaw: "6283115542771",
   whatsappUrl: "https://wa.me/6283115542771",
-  // TODO: KONFIRMASI PEMILIK BYTECTURE - Alamat kantor fisik dan email resmi
-  email: "halo@bytecture.web.id",
+  // TODO: KONFIRMASI PEMILIK JASA ARSITEK - Alamat kantor fisik dan email resmi
+  email: "halo@jasaarsitek.biz.id",
   address: "Layanan Konsultasi Online — Menjangkau Seluruh Wilayah Indonesia",
   serviceArea: "Seluruh Indonesia (Konsultasi & Dokumen Digital Online)",
-  // TODO: KONFIRMASI PEMILIK BYTECTURE - Tautan akun media sosial resmi Bytecture
+  // TODO: KONFIRMASI PEMILIK JASA ARSITEK - Tautan akun media sosial resmi Jasa Arsitek
   socials: {
-    instagram: "https://instagram.com/bytecture.id",
-    tiktok: "https://tiktok.com/@bytecture.id",
-    facebook: "https://facebook.com/bytecture.id",
-    twitter: "https://x.com/bytecture_id",
-    youtube: "https://youtube.com/@bytecture_id",
+    instagram: "https://instagram.com/jasaarsitek.biz.id",
+    tiktok: "https://tiktok.com/@jasaarsitek.biz.id",
+    facebook: "https://facebook.com/jasaarsitek.biz.id",
+    twitter: "https://x.com/jasaarsitek_id",
+    youtube: "https://youtube.com/@jasaarsitek_id",
   },
 };
 

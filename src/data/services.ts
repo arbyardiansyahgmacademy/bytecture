@@ -35,7 +35,7 @@ export const services: ServiceItem[] = [
     title: "Desain Rumah Tinggal Modern Tropis",
     subtitle: "Hunian Sehat, Estetis, dan Dirancang Presisi Sesuai Kebutuhan Keluarga",
     shortDescription: "Perencanaan arsitektur rumah tinggal baru mulai dari denah tata ruang optimal, visualisasi 3D fasad fotorealistik, hingga gambar kerja teknis pembangunan berstandar nasional.",
-    fullDescription: "Layanan desain rumah tinggal Bytecture menghadirkan pendekatan arsitektur holistik yang memadukan kenyamanan iklim tropis Indonesia—seperti sirkulasi udara silang (cross-ventilation), bukaan cahaya alami melimpah, dan tritisan atap teduh—dengan kepribadian unik pemilik hunian. Setiap meter persegi dirancang efisien tanpa ruang mati, siap dieksekusi oleh kontraktor lokal di kota mana pun Anda berada.",
+    fullDescription: "Layanan desain rumah tinggal Jasa Arsitek menghadirkan pendekatan arsitektur holistik yang memadukan kenyamanan iklim tropis Indonesia—seperti sirkulasi udara silang (cross-ventilation), bukaan cahaya alami melimpah, dan tritisan atap teduh—dengan kepribadian unik pemilik hunian. Setiap meter persegi dirancang efisien tanpa ruang mati, siap dieksekusi oleh kontraktor lokal di kota mana pun Anda berada.",
     image: "/images/services/desain-rumah.webp",
     badge: "Layanan Paling Populer",
     estimatedTime: "2 - 4 Minggu Kerja",
@@ -114,7 +114,7 @@ export const services: ServiceItem[] = [
     faqs: [
       {
         question: "Apakah proses desain rumah bisa dilakukan 100% online tanpa tatap muka fisik?",
-        answer: "Sangat bisa! Lebih dari 85% proyek Bytecture ditangani secara digital untuk klien di seluruh Indonesia (Sumatera, Kalimantan, Sulawesi, Bali, hingga Papua). Komunikasi intensif via WhatsApp dan Google Meet terbukti lebih fleksibel, cepat, dan menghemat biaya akomodasi survei.",
+        answer: "Sangat bisa! Lebih dari 85% proyek Jasa Arsitek ditangani secara digital untuk klien di seluruh Indonesia (Sumatera, Kalimantan, Sulawesi, Bali, hingga Papua). Komunikasi intensif via WhatsApp dan Google Meet terbukti lebih fleksibel, cepat, dan menghemat biaya akomodasi survei.",
       },
       {
         question: "Bagaimana jika bentuk tanah saya tidak simetris, serong, atau berkontur miring?",
@@ -125,11 +125,11 @@ export const services: ServiceItem[] = [
         answer: "Kami memberikan garansi revisi tata letak denah pada fase konsep hingga Anda merasa nyaman dengan fungsinya, dilanjutkan dengan 2-3 putaran penyesuaian detail fasad pada tahap visual 3D.",
       },
       {
-        question: "Apakah tukang atau mandor lokal di daerah saya bisa membaca gambar kerja dari Bytecture?",
+        question: "Apakah tukang atau mandor lokal di daerah saya bisa membaca gambar kerja dari Jasa Arsitek?",
         answer: "Pasti bisa. Seluruh gambar kerja kami disusun menggunakan notasi teknis standar arsitektur nasional Indonesia, lengkap dengan dimensi ukuran, elevasi tinggi lantai, keterangan material, dan skala yang jelas.",
       },
       {
-        question: "Apakah Bytecture juga menyediakan layanan perhitungan Rencana Anggaran Biaya (RAB)?",
+        question: "Apakah Jasa Arsitek juga menyediakan layanan perhitungan Rencana Anggaran Biaya (RAB)?",
         answer: "Ya, perhitungan RAB detail berbasis estimasi volume material dan upah kerja setempat dapat ditambahkan dalam paket perancangan lengkap.",
       },
     ],
@@ -139,7 +139,7 @@ export const services: ServiceItem[] = [
     title: "Desain Bangunan Komersial & Villa",
     subtitle: "Arsitektur Bernilai Jual Tinggi untuk Bisnis, Hospitality, dan Sewa",
     shortDescription: "Perencanaan arsitektur kafe kekinian, ruko modern, villa sewa eksklusif, kantor representatif, dan ruang komersial yang mengutamakan daya tarik visual serta efisiensi sirkulasi bisnis.",
-    fullDescription: "Bangunan komersial menuntut perpaduan tajam antara estetika fasad yang magnetik (Instagrammable, Iconic, & Memorable) dengan kelancaran sirkulasi operasional staf dan tamu. Bytecture merancang properti komersial Anda agar memiliki diferensiasi kuat dari kompetitor, memaksimalkan kapasitas sewa atau meja tanpa terasa padat, dan mempercepat tingkat pengembalian investasi (ROI).",
+    fullDescription: "Bangunan komersial menuntut perpaduan tajam antara estetika fasad yang magnetik (Instagrammable, Iconic, & Memorable) dengan kelancaran sirkulasi operasional staf dan tamu. Jasa Arsitek merancang properti komersial Anda agar memiliki diferensiasi kuat dari kompetitor, memaksimalkan kapasitas sewa atau meja tanpa terasa padat, dan mempercepat tingkat pengembalian investasi (ROI).",
     image: "/images/services/bangunan-komersial.webp",
     badge: "Solusi Investasi & Bisnis",
     estimatedTime: "3 - 5 Minggu Kerja",
@@ -215,12 +215,12 @@ export const services: ServiceItem[] = [
     ],
     faqs: [
       {
-        question: "Apakah Bytecture bisa mendesain renovasi ruko sewa standar menjadi kafe atau resto?",
+        question: "Apakah Jasa Arsitek bisa mendesain renovasi ruko sewa standar menjadi kafe atau resto?",
         answer: "Tentu! Banyak klien kami menyewa ruko standar 2-3 lantai dan mempercayakan perubahan fasad serta interior kepada kami agar bertransformasi menjadi kafe atau resto modern tanpa harus membongkar struktur kolom beton utama.",
       },
       {
         question: "Apakah rancangan villa sewa memperhitungkan kemudahan operasional dan perawatan?",
-        answer: "Sangat kami prioritaskan. Desain villa Bytecture selalu mengedepankan material lokal tropis yang tahan cuaca lembap, ventilasi alami untuk menekan konsumsi AC, dan kemudahan akses staf saat proses room cleaning.",
+        answer: "Sangat kami prioritaskan. Desain villa Jasa Arsitek selalu mengedepankan material lokal tropis yang tahan cuaca lembap, ventilasi alami untuk menekan konsumsi AC, dan kemudahan akses staf saat proses room cleaning.",
       },
       {
         question: "Apakah desain komersial sudah memperhitungkan sistem pembuangan limbah resto/kafe?",
@@ -233,7 +233,7 @@ export const services: ServiceItem[] = [
     title: "Desain Interior & Tata Ruang",
     subtitle: "Harmoni Ruang Dalam yang Ergonomis, Hangat, dan Tertata Rapi",
     shortDescription: "Perancangan tata letak interior, skema pencahayaan hangat, material finishes, dan furniture built-in untuk ruang keluarga, kamar tidur utama, dapur bersih, dan area kerja.",
-    fullDescription: "Interior yang baik bukan sekadar dekorasi kosmetik, melainkan bagaimana ruang berinteraksi dengan ritme kenyamanan hidup penghuninya. Layanan desain interior Bytecture berfokus pada keseimbangan pencahayaan multi-layer (ambient, task, accent), pemilihan tekstur material hangat (kayu, linen, batu alam), serta built-in storage cerdas yang membuat rumah selalu terlihat lega, rapi, dan mudah dibersihkan.",
+    fullDescription: "Interior yang baik bukan sekadar dekorasi kosmetik, melainkan bagaimana ruang berinteraksi dengan ritme kenyamanan hidup penghuninya. Layanan desain interior Jasa Arsitek berfokus pada keseimbangan pencahayaan multi-layer (ambient, task, accent), pemilihan tekstur material hangat (kayu, linen, batu alam), serta built-in storage cerdas yang membuat rumah selalu terlihat lega, rapi, dan mudah dibersihkan.",
     image: "/images/services/desain-interior.webp",
     badge: "Ergonomis & Menenangkan",
     estimatedTime: "2 - 3 Minggu Kerja",
@@ -309,7 +309,7 @@ export const services: ServiceItem[] = [
     ],
     faqs: [
       {
-        question: "Apakah Bytecture juga melayani pengerjaan fisik furniture?",
+        question: "Apakah Jasa Arsitek juga melayani pengerjaan fisik furniture?",
         answer: "Fokus utama kami adalah jasa perancangan desain arsitektur dan interior digital berlisensi. Kami membekali Anda dengan gambar kerja berdimensi presisi dan daftar merk material, sehingga Anda bebas memilih workshop mebel / vendor interior lokal dengan harga yang jauh lebih hemat dan transparan.",
       },
       {
@@ -327,7 +327,7 @@ export const services: ServiceItem[] = [
     title: "Renovasi & Pengembangan Bangunan",
     subtitle: "Transformasi Bangunan Lama Menjadi Segar, Modern, dan Bernilai Tinggi",
     shortDescription: "Perencanaan renovasi rumah tinggal, penambahan lantai bertingkat, perubahan fungsi ruang, serta pembaruan tampilan fasad bangunan lama dengan strategi struktur yang aman dan hemat biaya.",
-    fullDescription: "Renovasi bangunan menuntut kehati-hatian teknis tingkat tinggi dalam membaca kondisi struktur eksisting (pondasi, kolom, dan balok) agar biaya konstruksi tidak membengkak akibat pembongkaran yang keliru. Bytecture membantu Anda merancang renovasi cerdas yang mempertahankan bagian bangunan yang masih kokoh, menyelesaikan masalah ventilasi pengap atau atap bocor, dan menghadirkan wajah baru yang segar dan berkelas.",
+    fullDescription: "Renovasi bangunan menuntut kehati-hatian teknis tingkat tinggi dalam membaca kondisi struktur eksisting (pondasi, kolom, dan balok) agar biaya konstruksi tidak membengkak akibat pembongkaran yang keliru. Jasa Arsitek membantu Anda merancang renovasi cerdas yang mempertahankan bagian bangunan yang masih kokoh, menyelesaikan masalah ventilasi pengap atau atap bocor, dan menghadirkan wajah baru yang segar dan berkelas.",
     image: "/images/services/renovasi.webp",
     badge: "Solusi Efisien & Terukur",
     estimatedTime: "2 - 4 Minggu Kerja",

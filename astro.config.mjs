@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://bytecture.web.id',
+  site: 'https://jasaarsitek.biz.id',
   trailingSlash: 'always',
   build: { format: 'directory' },
 });

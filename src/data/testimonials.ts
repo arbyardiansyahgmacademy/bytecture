@@ -7,13 +7,13 @@ export interface TestimonialItem {
 }
 
 // Catatan Kepatuhan PRD: Menampilkan komitmen kepuasan dan review nyata yang telah terverifikasi.
-// TODO: KONFIRMASI PEMILIK BYTECTURE - Update dengan nama dan kutipan klien asli setelah verifikasi izin publikasi.
+// TODO: KONFIRMASI PEMILIK JASA ARSITEK - Update dengan nama dan kutipan klien asli setelah verifikasi izin publikasi.
 export const testimonials: TestimonialItem[] = [
   {
     name: "Bpk. Hendra S.",
     location: "Bandung, Jawa Barat",
     projectType: "Desain Rumah Tinggal 2 Lantai",
-    quote: "Sangat terbantu dengan konsultasi online Bytecture. Meskipun kami berbeda kota, diskusi via WhatsApp sangat terarah dan visualisasi 3D-nya membuat kami langsung yakin dengan pembagian ruangnya.",
+    quote: "Sangat terbantu dengan konsultasi online Jasa Arsitek. Meskipun kami berbeda kota, diskusi via WhatsApp sangat terarah dan visualisasi 3D-nya membuat kami langsung yakin dengan pembagian ruangnya.",
     rating: 5,
   },
   {

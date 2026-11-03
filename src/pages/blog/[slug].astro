@@ -21,7 +21,7 @@ const { article } = Astro.props;
 const otherArticles = articles.filter((a) => a.slug !== article.slug);
 const recommendedPackages = packages.slice(0, 3);
 
-const pageTitle = `${article.title} — Bytecture`;
+const pageTitle = `${article.title} — Jasa Arsitek`;
 const pageDescription = article.excerpt;
 const articleUrl = `${siteConfig.domain}/blog/${article.slug}/`;
 const imageUrl = `${siteConfig.domain}${article.image}`;
@@ -241,10 +241,10 @@ const structuredData = {
 
           <!-- CALL TO ACTION BANNER (IN-ARTICLE) -->
           <div class="cta-band">
-            <h3>Rencanakan Desain Bangunan Terbaik Anda Bersama Bytecture</h3>
-            <p>Konsultasikan ukuran lahan, preferensi gaya arsitektur, dan estimasi bujet proyek Anda secara gratis via WhatsApp resmi Bytecture.</p>
+            <h3>Rencanakan Desain Bangunan Terbaik Anda Bersama Jasa Arsitek</h3>
+            <p>Konsultasikan ukuran lahan, preferensi gaya arsitektur, dan estimasi bujet proyek Anda secara gratis via WhatsApp resmi Jasa Arsitek.</p>
             <a
-              href={`${siteConfig.whatsappUrl}?text=${encodeURIComponent(`Halo Bytecture, saya membaca artikel "${article.title}" dan ingin berkonsultasi mengenai rencana proyek saya.`)}`}
+              href={`${siteConfig.whatsappUrl}?text=${encodeURIComponent(`Halo Jasa Arsitek, saya membaca artikel "${article.title}" dan ingin berkonsultasi mengenai rencana proyek saya.`)}`}
               target="_blank"
               rel="noopener noreferrer"
               class="btn btn-wa"
@@ -268,7 +268,7 @@ const structuredData = {
                 <span>TANYA JAWAB PANDUAN</span>
               </span>
               <h3>Pertanyaan Sering Diajukan (FAQ)</h3>
-              <p class="faq-header-desc">Kompilasi jawaban teknis & praktis langsung dari Lead Architect Bytecture seputar topik artikel ini.</p>
+              <p class="faq-header-desc">Kompilasi jawaban teknis & praktis langsung dari Lead Architect Jasa Arsitek seputar topik artikel ini.</p>
             </div>
 
             <div class="faq-container">
@@ -411,7 +411,7 @@ const structuredData = {
             <h4>Paket Desain Lengkap & Gambar Kerja All-In</h4>
             <p>Dapatkan berkas denah 2D lengkap ukuran, render 3D fasad eksterior & interior, dan gambar kerja MEP siap tender.</p>
             <a
-              href={`${siteConfig.whatsappUrl}?text=${encodeURIComponent('Halo Bytecture, saya ingin konsultasi mengenai Paket Desain Lengkap.')}`}
+              href={`${siteConfig.whatsappUrl}?text=${encodeURIComponent('Halo Jasa Arsitek, saya ingin konsultasi mengenai Paket Desain Lengkap.')}`}
               target="_blank"
               rel="noopener noreferrer"
               class="btn-cta-link"
@@ -436,7 +436,7 @@ const structuredData = {
               <div class="news-widget-video-wrap">
                 <img
                   src="/images/gallery/villa-cliff.webp"
-                  alt="Showcase Desain Villa Tropis Bytecture"
+                  alt="Showcase Desain Villa Tropis Jasa Arsitek"
                   class="news-widget-video-thumb"
                   loading="lazy"
                   width="320"
@@ -462,7 +462,7 @@ const structuredData = {
             <h4 class="consult-title">Rencanakan Hunian Anda</h4>
             <p class="consult-desc">Diskusikan ukuran lahan, jumlah kamar, preferensi gaya, dan estimasi biaya bersama arsitek kami via WhatsApp.</p>
             <a
-              href={`${siteConfig.whatsappUrl}?text=${encodeURIComponent('Halo Bytecture, saya ingin konsultasi gratis mengenai denah dan desain rumah saya.')}`}
+              href={`${siteConfig.whatsappUrl}?text=${encodeURIComponent('Halo Jasa Arsitek, saya ingin konsultasi gratis mengenai denah dan desain rumah saya.')}`}
               target="_blank"
               rel="noopener noreferrer"
               class="btn-cta-wa"

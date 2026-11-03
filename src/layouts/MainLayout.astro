@@ -47,11 +47,19 @@ const organizationSchema = {
   image: absoluteOgImage,
   description: siteConfig.description,
   telephone: `+${siteConfig.phoneRaw}`,
-  areaServed: {
-    '@type': 'Country',
-    name: 'Indonesia',
-  },
-  priceRange: '$$',
+  areaServed: [
+    {
+      '@type': 'Country',
+      name: 'Indonesia',
+    },
+    {
+      '@type': 'AdministrativeArea',
+      name: 'Seluruh Indonesia (Jawa, Bali, Sumatera, Kalimantan, Sulawesi, Nusa Tenggara, Maluku, Papua)',
+    },
+  ],
+  priceRange: 'Rp 15.000 - Rp 45.000 / m²',
+  currenciesAccepted: 'IDR',
+  paymentAccepted: 'Transfer Bank, Bertahap 3 Termin',
   sameAs: [
     siteConfig.socials.instagram,
     siteConfig.socials.facebook,
@@ -72,6 +80,13 @@ const webSiteSchema = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- GEO & Local Search Engine Optimization (Indonesia) -->
+    <meta name="geo.region" content="ID" />
+    <meta name="geo.placename" content="Indonesia" />
+    <meta name="geo.position" content="-0.789275;113.921327" />
+    <meta name="ICBM" content="-0.789275, 113.921327" />
+    <meta name="search.country" content="ID" />
+
     <link rel="icon" type="image/webp" href="/images/logo/logo-bytecture.webp" />
     <link rel="apple-touch-icon" href="/images/logo/logo-bytecture.webp" />
     <link rel="manifest" href="/site.webmanifest" />

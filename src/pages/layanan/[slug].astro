@@ -21,9 +21,9 @@ const { service } = Astro.props;
 // Other services for related section
 const otherServices = services.filter((s) => s.slug !== service.slug);
 
-const pageTitle = `${service.title} — Jasa Arsitek Online Bytecture`;
+const pageTitle = `${service.title} — Jasa Arsitek Online Indonesia`;
 const pageDescription = service.shortDescription;
-const waContextMessage = `Halo Bytecture, saya ingin berkonsultasi mengenai ${service.title} untuk proyek saya.`;
+const waContextMessage = `Halo Jasa Arsitek, saya ingin berkonsultasi mengenai ${service.title} untuk proyek saya.`;
 
 // Service Schema
 const serviceSchema = {
@@ -158,7 +158,7 @@ const serviceSchema = {
       <div style="max-width: 860px; margin: 0 auto 3rem; text-align: center;">
         <span class="eyebrow eyebrow-accent" style="margin-bottom: 0.5rem;">ALUR KERJA PROFESIONAL</span>
         <h2 style="font-size: clamp(1.8rem, 3.5vw, 2.4rem); margin-bottom: 0.75rem;">
-          Tahapan Perancangan Bersama Bytecture
+          Tahapan Perancangan Bersama Jasa Arsitek
         </h2>
         <p style="font-size: 1.05rem; color: var(--color-text-secondary); line-height: 1.6;">
           Proses kolaborasi daring yang terstruktur rapi, transparan, dan terukur dari awal data lahan hingga serah terima berkas final siap bangun.
@@ -379,7 +379,7 @@ const serviceSchema = {
        ========================================================================= -->
   <CTASection
     title={`Siap Memulai Proyek ${service.title}?`}
-    description="Kirimkan sketsa ukuran tanah atau rencana kebutuhan ruangan Anda melalui WhatsApp resmi Bytecture untuk mendapatkan simulasi rancangan awal."
+    description="Kirimkan sketsa ukuran tanah atau rencana kebutuhan ruangan Anda melalui WhatsApp resmi Jasa Arsitek untuk mendapatkan simulasi rancangan awal."
     customMessage={waContextMessage}
   />
 </MainLayout>

@@ -138,7 +138,7 @@ export const articles: ArticleItem[] = [
     faqs: [
       {
         question: "Apakah hasil gambar arsitek online bisa dipahami mandor lokal?",
-        answer: "Bisa, karena seluruh dokumen gambar kerja Bytecture disusun berdasarkan standar teknis konstruksi Indonesia dengan simbol baku, skala terukur, dan notasi ukuran lengkap dalam format siap cetak."
+        answer: "Bisa, karena seluruh dokumen gambar kerja Jasa Arsitek disusun berdasarkan standar teknis konstruksi Indonesia dengan simbol baku, skala terukur, dan notasi ukuran lengkap dalam format siap cetak."
       },
       {
         question: "Bagaimana cara arsitek online menganalisis kondisi tanah saya?",
@@ -226,7 +226,7 @@ export const articles: ArticleItem[] = [
     faqs: [
       {
         question: "Apakah saya bisa mengajukan revisi pada setiap fase?",
-        answer: "Ya, Bytecture menyediakan putaran revisi terarah pada fase denah 2D dan model 3D sehingga Anda benar-benar puas sebelum dokumen kerja konstruksi difinalisasi."
+        answer: "Ya, Jasa Arsitek menyediakan putaran revisi terarah pada fase denah 2D dan model 3D sehingga Anda benar-benar puas sebelum dokumen kerja konstruksi difinalisasi."
       },
       {
         question: "Apakah format file gambar kerja siap dicetak langsung oleh kontraktor?",
@@ -263,7 +263,7 @@ export const articles: ArticleItem[] = [
         </p>
       </div>
 
-      <p>Salah satu keraguan terbesar calon pemilik rumah saat hendak berkonsultasi dengan arsitek adalah kekhawatiran bahwa biayanya sangat mahal dan tidak terjangkau. Melalui model studio arsitek online seperti Bytecture, sistem penentuan biaya dibuat sangat transparan berdasarkan luas lantai bangunan yang direncanakan.</p>
+      <p>Salah satu keraguan terbesar calon pemilik rumah saat hendak berkonsultasi dengan arsitek adalah kekhawatiran bahwa biayanya sangat mahal dan tidak terjangkau. Melalui model studio arsitek online seperti Jasa Arsitek, sistem penentuan biaya dibuat sangat transparan berdasarkan luas lantai bangunan yang direncanakan.</p>
 
       <!-- CONTOH SIMULASI BOX -->
       <div class="step-card card-border-gold" style="margin: 24px 0;">
@@ -294,7 +294,7 @@ export const articles: ArticleItem[] = [
     faqs: [
       {
         question: "Apakah konsultasi dan estimasi biaya awal dikenakan biaya?",
-        answer: "Tidak, konsultasi awal mengenai kebutuhan ruang dan estimasi perhitungan biaya desain di Bytecture adalah 100% gratis melalui chat WhatsApp resmi kami."
+        answer: "Tidak, konsultasi awal mengenai kebutuhan ruang dan estimasi perhitungan biaya desain di Jasa Arsitek adalah 100% gratis melalui chat WhatsApp resmi kami."
       },
       {
         question: "Kapan waktu terbaik untuk mulai menghubungi jasa arsitek?",

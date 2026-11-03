@@ -11,10 +11,10 @@ interface Props {
 
 const {
   eyebrow = 'MULAI PROYEK IMPIAN ANDA',
-  title = 'Rencanakan Desain Bangunan Terbaik Bersama Bytecture',
+  title = 'Rencanakan Desain Bangunan Terbaik Bersama Jasa Arsitek',
   description = 'Konsultasikan ide tata ruang, ukuran lahan, dan preferensi gaya arsitektur Anda secara langsung dengan tim perancang kami via WhatsApp.',
   buttonText = 'Konsultasi Sekarang via WhatsApp',
-  customMessage = 'Halo Bytecture, saya ingin berkonsultasi mengenai rencana desain bangunan saya.',
+  customMessage = 'Halo Jasa Arsitek, saya ingin berkonsultasi mengenai rencana desain bangunan saya.',
 } = Astro.props;
 
 const waUrl = `${siteConfig.whatsappUrl}?text=${encodeURIComponent(customMessage)}`;

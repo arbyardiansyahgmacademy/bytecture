@@ -1,7 +1,7 @@
 {
-  "name": "bytecture",
+  "name": "jasa-arsitek",
   "version": "1.0.0",
-  "description": "Website Jasa Arsitek Online Indonesia",
+  "description": "Website Resmi Jasa Arsitek Online Indonesia (jasaarsitek.biz.id)",
   "type": "module",
   "scripts": {
     "dev": "astro dev",
